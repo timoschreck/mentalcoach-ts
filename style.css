@@ -19,6 +19,16 @@ body {
     line-height: 1.6;
     color: var(--dark-text);
     background-color: var(--light-bg);
+    /* Add background watermark using the logo without text. The image is
+       anchored in the center of the viewport and does not move when
+       scrolling. Using a fixed attachment keeps it stationary behind the
+       content. The size is scaled to 40% of the viewport width to avoid
+       overpowering the content. */
+    background-image: url('logo_without_text.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 40%;
+    background-attachment: fixed;
 }
 
 a {
@@ -45,7 +55,12 @@ img {
 
 /* Header */
 .header {
-    background-color: #fff;
+    /* Use a header background image that reflects the brand colours and depicts
+       happy people. The linear gradient overlay ensures that the text and
+       navigation remain legible against the photo. */
+    background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url('family_photo.jpg');
+    background-size: cover;
+    background-position: center;
     border-bottom: 3px solid var(--secondary-color);
     position: sticky;
     top: 0;

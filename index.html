@@ -31,6 +31,14 @@
             line-height: 1.6;
             color: var(--dark-text);
             background-color: var(--light-bg);
+            /* Add watermark with the logo without text anchored to the center
+               of the viewport. The fixed attachment ensures the logo stays
+               stationary as the user scrolls. */
+            background-image: url('logo_without_text.png');
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: 40%;
+            background-attachment: fixed;
         }
 
         a {
@@ -58,7 +66,12 @@
 
         /* Header */
         .header {
-            background-color: #fff;
+            /* Use a photo of happy people as a header background. A semi‑transparent
+               white overlay (via linear‑gradient) keeps text legible while
+               showcasing the image. */
+            background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url('family_photo.jpg');
+            background-size: cover;
+            background-position: center;
             border-bottom: 3px solid var(--secondary-color);
             position: sticky;
             top: 0;
