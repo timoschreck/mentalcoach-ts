@@ -335,15 +335,27 @@
 
         /* Responsive adjustments */
         @media (max-width: 768px) {
-            /* Stack the primary navigation items vertically on small screens */
+            /* Show the hamburger menu button on small screens */
+            #menu-toggle {
+                display: block;
+            }
+            /* Hide the navigation by default; stack items vertically when opened */
             .main-nav > ul {
+                display: none;
                 flex-direction: column;
                 gap: 0;
+                width: 100%;
+            }
+            .main-nav > ul.open {
+                display: flex;
             }
             .main-nav > ul > li > a {
                 padding: 0.75rem;
+                width: 100%;
             }
             .submenu {
+                /* On mobile, always show submenus and place them in the normal flow */
+                display: block;
                 position: static;
                 border: none;
                 box-shadow: none;
@@ -359,6 +371,17 @@
             .two-column .image {
                 order: initial;
             }
+
+        /* Menu toggle button (hidden by default on larger screens) */
+        #menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.75rem;
+            color: var(--primary-color);
+            cursor: pointer;
+            margin-right: 0.5rem;
+        }
         }
 
         /* Verstecke die detaillierten Sections auf der Startseite.  Die Inhalte werden auf separaten Seiten dargestellt. */
@@ -393,6 +416,8 @@
                     <p class="slogan">Fokus, Gelassenheit und Energie – Coaching für Leistungssteigerung und Lebensqualität</p>
                 </div>
             </div>
+            <!-- Hamburger menu button for mobile screens -->
+            <button id="menu-toggle" aria-label="Menü öffnen oder schließen">☰</button>
             <nav class="main-nav">
                 <ul>
                     <li class="has-submenu"><a href="life-coaching.html">Life‑Coaching</a>
@@ -665,5 +690,6 @@
             }
         });
     </script>
+    <script src="script.js"></script>
 </body>
 </html>

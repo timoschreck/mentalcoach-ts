@@ -145,6 +145,16 @@ img {
 .main-nav li.has-submenu:hover > .submenu {
     display: block;
 }
+/* Menu toggle button (hidden on larger screens) */
+#menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.75rem;
+    color: var(--primary-color);
+    cursor: pointer;
+    margin-right: 0.5rem;
+}
 
 /* Sections */
 .section {
@@ -289,15 +299,28 @@ img {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-    /* Stack the primary navigation items vertically on small screens */
+    /* Show the menu toggle on small screens */
+    #menu-toggle {
+        display: block;
+    }
+    /* Hide the navigation by default and stack items vertically */
     .main-nav > ul {
+        display: none;
         flex-direction: column;
         gap: 0;
+        width: 100%;
+    }
+    /* Show navigation when the open class is set via JavaScript */
+    .main-nav > ul.open {
+        display: flex;
     }
     .main-nav > ul > li > a {
         padding: 0.75rem;
+        width: 100%;
     }
     .submenu {
+        /* On mobile, always show submenus and place them in the normal flow */
+        display: block;
         position: static;
         border: none;
         box-shadow: none;
