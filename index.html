@@ -68,14 +68,22 @@
         .header {
             /* Use a photo of happy people as a header background. A semi‑transparent
                white overlay (via linear‑gradient) keeps text legible while
-               showcasing the image. */
-            background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url('header_photo.png');
+               showcasing the image. Updated to use the new photorealistic header
+               image featuring happy people outdoors across a wide age range. */
+            background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url('header_photo_new.png');
             background-size: cover;
             background-position: center;
             border-bottom: 3px solid var(--secondary-color);
             position: sticky;
             top: 0;
             z-index: 100;
+            /* Provide a minimum height so that the header image is visible as a
+               hero banner. By default the header height collapses to the height of
+               its content, which hides the background picture; setting a
+               min-height reveals it. */
+            min-height: 250px;
+            display: flex;
+            align-items: center;
         }
 
         .header-inner {
