@@ -188,15 +188,29 @@
         }
 
         /* Styles for quotes section */
-        .quotes blockquote {
-            border-left: 4px solid var(--secondary-color);
-            margin: 1rem 0;
-            padding: 0.5rem 1rem;
-            background-color: var(--light-bg);
-        }
+            .quotes blockquote {
+                border-left: 4px solid var(--secondary-color);
+                margin: 1rem 0;
+                padding: 0.5rem 1rem;
+                background-color: var(--light-bg);
+                /* Ensure long quotes wrap within the container instead of overflowing */
+                max-width: 100%;
+                word-break: break-word;
+                overflow-wrap: anywhere;
+            }
 
         .quotes blockquote p {
             margin: 0.25rem 0;
+        }
+
+        /* Ensure the quotes container and blockquotes respect the container width */
+        .quotes {
+            width: 100%;
+        }
+
+        .quotes blockquote {
+            max-width: 100%;
+            overflow-wrap: anywhere;
         }
 
         /* Two column layouts */
