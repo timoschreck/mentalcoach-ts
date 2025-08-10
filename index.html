@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mentalcoach TS – Fokus, Gelassenheit und Energie</title>
-    <meta name="description" content="Mentalcoach Timo Schreck – Coaching für Life‑Coaching, Sport‑Mentalcoaching und die Ausbildung zum Sport‑Mentalcoach. Wir helfen Ihnen, Fokus, Gelassenheit und Energie zu finden und Ihre Ziele zu erreichen.">
+    <!-- Update the title to reflect the full name of the coach -->
+    <title>Mentalcoach Timo Schreck – Fokus, Gelassenheit und Energie</title>
+    <meta name="description" content="Mentalcoach Timo Schreck – Coaching für Life‑Coaching, Sport‑Mentalcoaching und die Ausbildung zum Sport‑Mentalcoach. Wir helfen dir, Fokus, Gelassenheit und Energie zu finden und deine Ziele zu erreichen.">
     <!-- Link to the external stylesheet in the css directory -->
     <!-- Import Google font and internal stylesheet -->
     <style>
@@ -101,8 +102,13 @@
         }
 
         .logo {
-            width: 60px;
-            height: 60px;
+            /* Fix logo dimensions: set a fixed height and allow the width to scale
+               automatically to preserve the original aspect ratio. This prevents
+               distortion and makes the logo appear as intended. Increase the
+               height to 80px so the logo is more prominent and mirrors the
+               proportions of the original artwork without stretching it. */
+            height: 80px;
+            width: auto;
         }
 
         .site-title h1 {
@@ -431,9 +437,9 @@
         <div class="container header-inner">
             <div class="logo-and-title">
                 <!-- Verwende das Logo aus dem assets-Ordner -->
-                <img class="logo" src="logo_without_text.png" alt="Mentalcoach TS Logo" />
+                <img class="logo" src="logo_without_text.png" alt="Mentalcoach Timo Schreck Logo" />
                 <div class="site-title">
-                    <h1>Mentalcoach&nbsp;TS</h1>
+                <h1>Mentalcoach&nbsp;Timo&nbsp;Schreck</h1>
                     <p class="slogan">Fokus, Gelassenheit und Energie – Coaching für Leistungssteigerung und Lebensqualität</p>
                 </div>
             </div>
