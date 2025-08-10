@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentalcoach TS – Fokus, Gelassenheit und Energie</title>
+    <meta name="description" content="Mentalcoach Timo Schreck – Coaching für Life‑Coaching, Sport‑Mentalcoaching und die Ausbildung zum Sport‑Mentalcoach. Wir helfen Ihnen, Fokus, Gelassenheit und Energie zu finden und Ihre Ziele zu erreichen.">
+    <!-- Link to the external stylesheet in the css directory -->
+    <!-- Import Google font and internal stylesheet -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+        /* Global styles */
+        :root {
+            --primary-color: #05779e; /* dunkles Blau aus dem Logo */
+            --secondary-color: #00a7b5; /* türkise Akzentfarbe aus dem Logo */
+            --light-bg: #f4fafc; /* helle Hintergrundfarbe */
+            --dark-text: #0f3555; /* dunkle Textfarbe */
+            --max-width: 1100px;
+            --border-radius: 4px;
+            --transition-speed: 0.2s;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-text);
+            background-color: var(--light-bg);
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        a:hover,
+        a:focus {
+            text-decoration: underline;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Container */
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Header */
+        .header {
+            background-color: #fff;
+            border-bottom: 3px solid var(--secondary-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+        }
+
+        .logo-and-title {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .logo {
+            width: 60px;
+            height: 60px;
+        }
+
+        .site-title h1 {
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .slogan {
+            margin: 0;
+            font-size: 0.85rem;
+            color: var(--dark-text);
+        }
+
+        /* Navigation */
+        .main-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .main-nav li {
+            position: relative;
+        }
+
+        .main-nav > ul > li > a {
+            display: block;
+            padding: 0.5rem 0.75rem;
+            font-weight: 500;
+            color: var(--primary-color);
+            transition: background-color var(--transition-speed), color var(--transition-speed);
+        }
+
+        .main-nav > ul > li > a:hover {
+            color: #fff;
+            background-color: var(--primary-color);
+            border-radius: var(--border-radius);
+        }
+
+        .submenu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #fff;
+            border: 1px solid var(--secondary-color);
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            z-index: 50;
+        }
+
+        .submenu li a {
+            display: block;
+            padding: 0.5rem 1rem;
+            white-space: nowrap;
+            color: var(--primary-color);
+        }
+
+        .submenu li a:hover {
+            background-color: var(--secondary-color);
+            color: #fff;
+        }
+
+        .main-nav li.has-submenu:hover > .submenu {
+            display: block;
+        }
+
+        /* Sections */
+        .section {
+            padding: 3rem 0;
+            background-color: #fff;
+        }
+
+        .section.alt-bg {
+            background-color: var(--light-bg);
+        }
+
+        .section h2 {
+            margin-top: 0;
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .section h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .section p {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        /* Two column layouts */
+        .two-column {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .two-column .text {
+            flex: 1 1 50%;
+            min-width: 250px;
+        }
+
+        .two-column .image {
+            flex: 1 1 50%;
+            min-width: 250px;
+        }
+
+        /* Beschränkung der Bildhöhe in zweispaltigem Layout */
+        .two-column .image img {
+            max-height: 320px;
+            width: 100%;
+            object-fit: cover;
+            border-radius: var(--border-radius);
+        }
+
+        .two-column.reverse .text {
+            order: 2;
+        }
+
+        .two-column.reverse .image {
+            order: 1;
+        }
+
+        /* Contact form */
+        .contact-form {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .contact-form .form-row {
+            margin-bottom: 1rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-form label {
+            margin-bottom: 0.25rem;
+            font-weight: 500;
+        }
+
+        .contact-form input,
+        .contact-form select,
+        .contact-form textarea {
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            width: 100%;
+            resize: vertical;
+        }
+
+        .contact-form button {
+            background-color: var(--primary-color);
+            color: #fff;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: background-color var(--transition-speed);
+        }
+
+        .contact-form button:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #fff;
+            border-top: 3px solid var(--secondary-color);
+            padding: 2rem 0;
+            font-size: 0.9rem;
+        }
+
+        .footer h2 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+
+        .footer a {
+            color: var(--primary-color);
+        }
+
+        /* WhatsApp button */
+        .whatsapp-button {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            width: 60px;
+            height: 60px;
+            background-color: #25d366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform var(--transition-speed);
+            z-index: 150;
+        }
+
+        .whatsapp-button img {
+            width: 32px;
+            height: 32px;
+        }
+
+        .whatsapp-button:hover {
+            transform: scale(1.05);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .main-nav ul {
+                flex-direction: column;
+                gap: 0;
+            }
+            .main-nav > ul > li > a {
+                padding: 0.75rem;
+            }
+            .submenu {
+                position: static;
+                border: none;
+                box-shadow: none;
+                margin-left: 1rem;
+            }
+            .submenu li a {
+                padding: 0.5rem 0;
+            }
+            .two-column {
+                flex-direction: column;
+            }
+            .two-column .text,
+            .two-column .image {
+                order: initial;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating WhatsApp button -->
+    <a class="whatsapp-button" href="https://wa.me/491752287170" target="_blank" aria-label="Kontakt per WhatsApp">
+        <!-- WhatsApp‑Icon: lokal gespeichert im Projektverzeichnis -->
+        <img src="whatsapp_icon.svg" alt="WhatsApp‑Icon" />
+    </a>
+
+    <header class="header">
+        <div class="container header-inner">
+            <div class="logo-and-title">
+                <!-- Verwende das Logo aus dem assets-Ordner -->
+                <img class="logo" src="logo_without_text.png" alt="Mentalcoach TS Logo" />
+                <div class="site-title">
+                    <h1>Mentalcoach&nbsp;TS</h1>
+                    <p class="slogan">Fokus, Gelassenheit und Energie – Coaching für Leistungssteigerung und Lebensqualität</p>
+                </div>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li class="has-submenu"><a href="#lifecoaching">Life‑Coaching</a>
+                        <ul class="submenu">
+                            <li><a href="#familie">Familie</a></li>
+                            <li><a href="#kinder">Kinder &amp; Jugendliche</a></li>
+                            <li><a href="#job">Job</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu"><a href="#sportcoaching">Sport‑Mentalcoaching</a>
+                        <ul class="submenu">
+                            <li><a href="#einzelsportler">Einzelsportler</a></li>
+                            <li><a href="#mannschaft">Mannschaftssport</a></li>
+                            <li><a href="#trainer">Trainercoaching</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#ausbildung">Ausbildung</a></li>
+                    <li><a href="#kontakt">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Life‑Coaching general introduction -->
+        <section id="lifecoaching" class="section">
+            <div class="container">
+                <h2>Life‑Coaching</h2>
+                <p>Im Life‑Coaching begleite ich Sie dabei, klare Ziele zu formulieren, belastende Muster zu lösen und eine nachhaltige Balance im Alltag zu entwickeln. Methoden wie Vision‑Entwicklung, Wheel of Life, Reframing sowie Glaubenssatz‑ und Ressourcenarbeit unterstützen Sie dabei, neue Perspektiven zu gewinnen und Ihre Lebensqualität zu steigern.</p>
+            </div>
+        </section>
+
+        <!-- Familie subsection -->
+        <section id="familie" class="section alt-bg">
+            <div class="container two-column">
+                <div class="text">
+                    <h3>Familie</h3>
+                    <p>Als erfahrener Lifecoach unterstütze ich Eltern dabei, ihre Beziehungen zu stärken, eine positive Kommunikation zu fördern und gemeinsame Werte zu definieren. Gemeinsam erarbeiten wir Wege, um Konflikte friedlich zu lösen, Vertrauen zu vertiefen und eine liebevolle, harmonische Familienkultur zu schaffen, die alle Mitglieder trägt und wachsen lässt.</p>
+                </div>
+                <div class="image">
+                    <!-- Abstraktes Bild zur Darstellung des Coaching-Themas Familie -->
+                    <!-- Echtes Foto einer glücklichen Familie aus dem öffentlichen Domain-Archiv -->
+                    <img src="family_photo.jpg" alt="Glückliche Familie" />
+                </div>
+            </div>
+        </section>
+
+        <!-- Kinder und Jugendliche subsection -->
+        <section id="kinder" class="section">
+            <div class="container two-column reverse">
+                <div class="text">
+                    <h3>Kinder &amp; Jugendliche</h3>
+                    <p>Ich begleite Kinder und Jugendliche dabei, ihr Selbstvertrauen zu stärken, schulischen Druck abzubauen und ihren eigenen Weg voller Zuversicht zu gehen. Mit spielerischen Übungen und Techniken zur Emotionsregulation lernen junge Menschen, Stress zu bewältigen, Fokus zu finden und ihre Talente zu entfalten – für einen positiven Start ins Erwachsenenleben.</p>
+                </div>
+                <div class="image">
+                    <!-- Echtes Foto spielender Kinder für den Bereich Kinder & Jugendliche -->
+                    <img src="children_playing.jpg" alt="Kinder und Jugendliche beim Spielen" />
+                </div>
+            </div>
+        </section>
+
+        <!-- Job subsection -->
+        <section id="job" class="section alt-bg">
+            <div class="container two-column">
+                <div class="text">
+                    <h3>Job &amp; Berufung</h3>
+                    <p>Im beruflichen Kontext helfe ich Ihnen, Klarheit über Ihre Ziele zu gewinnen, Stresssituationen souverän zu meistern und Ihre Motivation nachhaltig zu stärken. Gemeinsam entwickeln wir Strategien für eine gesunde Work‑Life‑Balance, damit Sie Leistungsfreude, innere Gelassenheit und beruflichen Erfolg in Einklang bringen können.</p>
+                </div>
+                <div class="image">
+                    <!-- Foto eines Berufstätigen am Laptop für den Themenbereich Job -->
+                    <img src="job.jpg" alt="Berufstätiger am Laptop" />
+                </div>
+            </div>
+        </section>
+
+        <!-- Sport‑Mentalcoaching general -->
+        <section id="sportcoaching" class="section">
+            <div class="container">
+                <h2>Sport‑Mentalcoaching</h2>
+                <p>Als ehemaliger Leistungssportler und langjähriger Trainer weiß ich, wie wichtig mentale Stärke für sportlichen Erfolg ist. In meinem Sport‑Mentalcoaching fördere ich Fokussierung, Motivation und Resilienz, damit Sie im Wettkampf Ihr volles Potenzial abrufen können. Ich arbeite mit Einzelsportlern, Teams und Trainern an individuellen Zielen und Strategien.</p>
+            </div>
+        </section>
+
+        <!-- Einzelsportler subsection -->
+        <section id="einzelsportler" class="section alt-bg">
+            <div class="container two-column">
+                <div class="text">
+                    <h3>Einzelsportler</h3>
+                    <p>Ob Sie Ihre Leistungsgrenze verschieben oder Rückschläge verarbeiten möchten – als Mentalcoach unterstütze ich Sie mit bewährten Techniken wie Visualisierung, Emotions Code und Emotional Freedom Techniques. Sie lernen, Ihre Gedanken zu fokussieren, Anspannung abzubauen und im entscheidenden Moment in den Flow‑Zustand zu gelangen.</p>
+                </div>
+                <div class="image">
+                    <!-- Foto eines Einzelsportlers beim Training -->
+                    <img src="single_athlete.jpg" alt="Einzelsportler beim Training" />
+                </div>
+            </div>
+        </section>
+
+        <!-- Mannschaftssport subsection -->
+        <section id="mannschaft" class="section">
+            <div class="container two-column reverse">
+                <div class="text">
+                    <h3>Mannschaftssport</h3>
+                    <p>Im Teamcoaching geht es darum, den Teamgeist zu stärken, gemeinsame Visionen zu entwickeln und mit mentalen Tools erfolgreich zusammenzuarbeiten. Wir trainieren den Umgang mit Drucksituationen, stärken die Kommunikation und schaffen ein leistungsförderndes Umfeld, in dem jedes Mitglied sein Potenzial einbringen kann.</p>
+                </div>
+                <div class="image">
+                    <!-- Foto von Mannschaftssportlern in Aktion -->
+                    <img src="team_sports.jpg" alt="Mannschaftssport in Aktion" />
+                </div>
+            </div>
+        </section>
+
+        <!-- Trainercoaching subsection -->
+        <section id="trainer" class="section alt-bg">
+            <div class="container two-column">
+                <div class="text">
+                    <h3>Trainercoaching</h3>
+                    <p>Trainer stehen vor der Herausforderung, Talente zu fördern, Teams zu führen und gleichzeitig ihr eigenes Wohlbefinden im Blick zu behalten. Im Trainercoaching reflektieren wir Ihre Führungsrolle, vermitteln mentale Strategien zur Motivation und zeigen Wege, wie Sie Ihre Mannschaft langfristig zum Erfolg begleiten.</p>
+                </div>
+                <div class="image">
+                    <!-- Foto eines Trainers beim Coaching -->
+                    <img src="trainer_coaching.jpg" alt="Trainer beim Coaching" />
+                </div>
+            </div>
+        </section>
+
+        <!-- Ausbildung -->
+        <section id="ausbildung" class="section">
+            <div class="container two-column">
+                <div class="text">
+                    <h2>Ausbildung zum Sport‑Mentalcoach</h2>
+                    <p>Sie möchten selbst Sportlerinnen und Sportler auf ihrem mentalen Weg begleiten? In meiner Ausbildung zum Sport‑Mentalcoach vermittle ich Ihnen fundiertes Wissen aus der Sportpsychologie, energetische Coaching‑Ansätze und praxisorientierte Methoden. Die Ausbildung richtet sich an Trainer, Sportler und alle, die die mentalen Prozesse hinter Spitzenleistungen verstehen und vermitteln möchten.</p>
+                </div>
+                <div class="image">
+                    <!-- Abstraktes Bild für die Ausbildung zum Sport‑Mentalcoach -->
+                    <!-- Foto einer Gruppe beim Training für die Ausbildung zum Sport-Mentalcoach -->
+                    <img src="training_people.jpg" alt="Gruppe beim Training" />
+                </div>
+            </div>
+        </section>
+
+        <!-- Kontakt -->
+        <section id="kontakt" class="section alt-bg">
+            <div class="container">
+                <h2>Kontakt</h2>
+                <form class="contact-form" action="#" method="post" onsubmit="return false;">
+                    <div class="form-row">
+                        <label for="vorname">Vorname:</label>
+                        <input type="text" id="vorname" name="vorname" required>
+                    </div>
+                    <div class="form-row">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-row">
+                        <label for="telefon">Telefon:</label>
+                        <input type="tel" id="telefon" name="telefon">
+                    </div>
+                    <div class="form-row">
+                        <label for="email">E‑Mail:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-row">
+                        <label for="thema">Mein Thema:</label>
+                        <select id="thema" name="thema" required>
+                            <option value="">Bitte wählen …</option>
+                            <option value="lifecoaching">Life‑Coaching</option>
+                            <option value="sportcoaching">Sport‑Mentalcoaching</option>
+                            <option value="ausbildung">Ausbildung</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <label for="nachricht">Ihre Nachricht:</label>
+                        <textarea id="nachricht" name="nachricht" rows="4" maxlength="250" placeholder="Ihre Nachricht (max. 250 Zeichen)"></textarea>
+                    </div>
+                    <div class="form-row">
+                        <label for="kontaktart">Bitte um:</label>
+                        <select id="kontaktart" name="kontaktart" required>
+                            <option value="">Bitte wählen …</option>
+                            <option value="ruckruf">Rückruf</option>
+                            <option value="email">E‑Mail</option>
+                            <option value="whatsapp">WhatsApp‑Nachricht</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <label for="erreichbarkeit">Dann bin ich am besten zu erreichen:</label>
+                        <input type="text" id="erreichbarkeit" name="erreichbarkeit" placeholder="z. B. werktags ab 18 Uhr">
+                    </div>
+                    <div class="form-row submit-row">
+                        <button type="submit">Nachricht senden</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <h2>Impressum</h2>
+            <p>Mentalcoach&nbsp;Timo Schreck<br>
+            Villinger Straße 20<br>
+            68239&nbsp;Mannheim<br>
+            Telefon: <a href="tel:+491752287170">+49&nbsp;175‑2287170</a><br>
+            E‑Mail: <a href="mailto:office@mentalcoach-ts.de">office@mentalcoach-ts.de</a></p>
+            <p>Angaben gemäß §&nbsp;5&nbsp;DDG (ehemals TMG) und §&nbsp;18&nbsp;MStV. Für den Inhalt dieser Website verantwortlich: Timo Schreck. Weitere gesetzliche Pflichtangaben wie Registereintrag oder USt‑ID sind für dieses Einzelunternehmen nicht erforderlich.</p>
+        </div>
+    </footer>
+    <!-- Inline JavaScript für einfache Interaktionen -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const messageField = document.getElementById('nachricht');
+            if (messageField) {
+                const maxLength = parseInt(messageField.getAttribute('maxlength') || '250', 10);
+                const counter = document.createElement('small');
+                counter.className = 'char-counter';
+                counter.textContent = `0/${maxLength}`;
+                messageField.parentNode?.appendChild(counter);
+                messageField.addEventListener('input', () => {
+                    const currentLength = messageField.value.length;
+                    counter.textContent = `${currentLength}/${maxLength}`;
+                });
+            }
+        });
+    </script>
+</body>
+</html>
