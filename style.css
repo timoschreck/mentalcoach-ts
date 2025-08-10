@@ -85,7 +85,14 @@ img {
 }
 
 /* Navigation */
-.main-nav ul {
+/*
+ * Style the top-level navigation list as a flex container. Use the child selector
+ * > to ensure that only the primary menu is displayed as flex and that
+ * submenus remain unaffected. Without the child selector, all nested ul
+ * elements (including the dropdowns) would inherit the flex layout, causing
+ * submenus to display horizontally instead of being hidden until hovered.
+ */
+.main-nav > ul {
     list-style: none;
     margin: 0;
     padding: 0;
@@ -282,7 +289,8 @@ img {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-    .main-nav ul {
+    /* Stack the primary navigation items vertically on small screens */
+    .main-nav > ul {
         flex-direction: column;
         gap: 0;
     }

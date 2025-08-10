@@ -98,7 +98,13 @@
         }
 
         /* Navigation */
-        .main-nav ul {
+        /*
+         * Style the top-level navigation list as a flex container. Use the
+         * child selector > so that only the root navigation list becomes a
+         * flexbox. This prevents nested submenus from inheriting the flex
+         * layout and ensures they stay hidden until hovered.
+         */
+        .main-nav > ul {
             list-style: none;
             margin: 0;
             padding: 0;
@@ -303,7 +309,8 @@
 
         /* Responsive adjustments */
         @media (max-width: 768px) {
-            .main-nav ul {
+            /* Stack the primary navigation items vertically on small screens */
+            .main-nav > ul {
                 flex-direction: column;
                 gap: 0;
             }
@@ -327,6 +334,20 @@
                 order: initial;
             }
         }
+
+        /* Verstecke die detaillierten Sections auf der Startseite.  Die Inhalte werden auf separaten Seiten dargestellt. */
+        #lifecoaching,
+        #familie,
+        #kinder,
+        #job,
+        #sportcoaching,
+        #einzelsportler,
+        #mannschaft,
+        #trainer,
+        #ausbildung,
+        #kontakt {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -348,28 +369,49 @@
             </div>
             <nav class="main-nav">
                 <ul>
-                    <li class="has-submenu"><a href="#lifecoaching">Life‑Coaching</a>
+                    <li class="has-submenu"><a href="life-coaching.html">Life‑Coaching</a>
                         <ul class="submenu">
-                            <li><a href="#familie">Familie</a></li>
-                            <li><a href="#kinder">Kinder &amp; Jugendliche</a></li>
-                            <li><a href="#job">Job</a></li>
+                            <li><a href="familie.html">Familie</a></li>
+                            <li><a href="kinder-jugendliche.html">Kinder &amp; Jugendliche</a></li>
+                            <li><a href="job.html">Job</a></li>
                         </ul>
                     </li>
-                    <li class="has-submenu"><a href="#sportcoaching">Sport‑Mentalcoaching</a>
+                    <li class="has-submenu"><a href="sport-mentalcoaching.html">Sport‑Mentalcoaching</a>
                         <ul class="submenu">
-                            <li><a href="#einzelsportler">Einzelsportler</a></li>
-                            <li><a href="#mannschaft">Mannschaftssport</a></li>
-                            <li><a href="#trainer">Trainercoaching</a></li>
+                            <li><a href="einzelsportler.html">Einzelsportler</a></li>
+                            <li><a href="mannschaftssport.html">Mannschaftssport</a></li>
+                            <li><a href="trainercoaching.html">Trainercoaching</a></li>
                         </ul>
                     </li>
-                    <li><a href="#ausbildung">Ausbildung</a></li>
-                    <li><a href="#kontakt">Kontakt</a></li>
+                    <li><a href="ausbildung.html">Ausbildung</a></li>
+                    <li><a href="kontakt.html">Kontakt</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <main>
+        <!-- Neue Startseite mit allgemeiner Einführung und Über mich -->
+        <section id="intro" class="section">
+            <div class="container">
+                <h2>Was ist Mentalcoaching?</h2>
+                <p>Im Mentalcoaching geht es darum, mentale Stärke aufzubauen, den eigenen Fokus zu schärfen und innere Gelassenheit zu finden. Mit verschiedenen Methoden wie Vision‑Entwicklung, Wheel&nbsp;of&nbsp;Life, Reframing und Glaubenssatzarbeit unterstützt ein Mentalcoach Menschen dabei, blockierende Muster zu lösen, persönliche Ziele zu definieren und ihre innere Balance zu stärken. Dadurch können Sie Herausforderungen im Alltag, Beruf und Sport mit mehr Energie, Selbstvertrauen und Klarheit begegnen.</p>
+            </div>
+        </section>
+
+        <section id="about" class="section alt-bg">
+            <div class="container two-column">
+                <div class="text">
+                    <h2>Über mich</h2>
+                    <p>Als ehemaliger Leistungssportler und langjähriger Trainer habe ich hautnah erlebt, wie entscheidend mentale Stärke für Erfolg und Lebensqualität ist. Nach meiner aktiven Sportkarriere habe ich mich umfassend zum Mentalcoach und Lifecoach ausbilden lassen und Fortbildungen wie den Emotions Code und Emotional Freedom Techniques absolviert. Heute begleite ich Familien, Kinder und Jugendliche, Berufstätige sowie Sportlerinnen und Sportler auf ihrem Weg zu mehr Fokus, Gelassenheit und Energie.</p>
+                    <p>In meiner Arbeit verbinde ich empathisches, wertschätzendes Coaching mit praxisorientierten Methoden aus der Sportpsychologie und Persönlichkeitsentwicklung. Mein Ziel ist es, Menschen dabei zu unterstützen, ihre Potenziale zu erkennen, belastende Glaubenssätze zu lösen und mit einer klaren Vision ihre Ziele zu erreichen – für mehr Lebensqualität und nachhaltige Spitzenleistung.</p>
+                </div>
+                <div class="image">
+                    <!-- Foto einer Gruppe beim Training als Symbol für Entwicklung und Wachstum -->
+                    <img src="training_people.jpg" alt="Gruppe beim Training" />
+                </div>
+            </div>
+        </section>
         <!-- Life‑Coaching general introduction -->
         <section id="lifecoaching" class="section">
             <div class="container">
