@@ -138,6 +138,28 @@
 }
 
 @media all and (min-width: 835px) and (min-height: 567px) {
+    body.wbk-is-startpage .hero-section {
+        min-height: calc(100vh - 92px) !important;
+        padding: 1.5rem 2rem !important;
+    }
+
+    body.wbk-is-startpage #wbk-title,
+    body.wbk-is-startpage #wbk-title > a,
+    body.wbk-is-startpage #wbk-title > a > span {
+        font-size: clamp(3rem, 5vw, 4.5rem) !important;
+        line-height: 1.05 !important;
+    }
+
+    body.wbk-is-startpage #wbk-subtitle,
+    body.wbk-is-startpage #wbk-subtitle > span {
+        font-size: clamp(1.35rem, 2.1vw, 1.8rem) !important;
+        line-height: 1.25 !important;
+    }
+
+    body.wbk-is-startpage .mc-hero-cta {
+        margin-top: 18px !important;
+    }
+
     .nav-container {
         padding-left: 2rem !important;
         padding-right: 2rem !important;
