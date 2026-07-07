@@ -1,729 +1,208 @@
 <!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Update the title to reflect the full name of the coach -->
-    <title>Mentalcoach Timo Schreck – Fokus, Gelassenheit und Energie</title>
-  
-    <meta name="description" content="Mentalcoach Timo Schreck – Coaching für Life‑Coaching, Sport‑Mentalcoaching und die Ausbildung zum Sport‑Mentalcoach. Wir helfen dir, Fokus, Gelassenheit und Energie zu finden und deine Ziele zu erreichen.">
-    <!-- Link to the external stylesheet in the css directory -->
-    <!-- Import Google font and internal stylesheet -->
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
-
-        /* Global styles */
-        :root {
-            --primary-color: #05779e; /* dunkles Blau aus dem Logo */
-            --secondary-color: #00a7b5; /* türkise Akzentfarbe aus dem Logo */
-            --light-bg: #f4fafc; /* helle Hintergrundfarbe */
-            --dark-text: #0f3555; /* dunkle Textfarbe */
-            --max-width: 1100px;
-            --border-radius: 4px;
-            --transition-speed: 0.2s;
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            font-family: 'Roboto', sans-serif;
-            line-height: 1.6;
-            color: var(--dark-text);
-            background-color: var(--light-bg);
-            /* Add watermark with the logo without text anchored to the center
-               of the viewport. The fixed attachment ensures the logo stays
-               stationary as the user scrolls. */
-            background-image: url('logo_without_text.png');
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: 40%;
-            background-attachment: fixed;
-        }
-
-        a {
-            color: var(--primary-color);
-            text-decoration: none;
-        }
-
-        a:hover,
-        a:focus {
-            text-decoration: underline;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        /* Container */
-        .container {
-            max-width: var(--max-width);
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-
-        /* Header */
-        .header {
-            /* Use a photo of happy people as a header background. A semi‑transparent
-               white overlay (via linear‑gradient) keeps text legible while
-               showcasing the image. Updated to use the new photorealistic header
-               image featuring happy people outdoors across a wide age range. */
-
-            background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url('header_photo_new.png');
-            background-size: cover;
-            background-position: center;
-            border-bottom: 3px solid var(--secondary-color);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            /* Provide a minimum height so that the header image is visible as a
-               hero banner. By default the header height collapses to the height of
-               its content, which hides the background picture; setting a
-               min-height reveals it. */
-            min-height: 250px;
-            display: flex;
-            align-items: center;
-        }
-
-        .header-inner {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0.5rem 0;
-        }
-
-        .logo-and-title {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-        }
-
-        .logo {
-            /* Fix logo dimensions: set a fixed height and allow the width to scale
-               automatically to preserve the original aspect ratio. This prevents
-               distortion and makes the logo appear as intended. Increase the
-               height to 80px so the logo is more prominent and mirrors the
-               proportions of the original artwork without stretching it. */
-            height: 80px;
-            width: auto;
-        }
-
-        .site-title h1 {
-            margin: 0;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary-color);
-        }
-
-        .slogan {
-            margin: 0;
-            font-size: 0.85rem;
-            color: var(--dark-text);
-        }
-
-        /* Navigation */
-        /*
-         * Style the top-level navigation list as a flex container. Use the
-         * child selector > so that only the root navigation list becomes a
-         * flexbox. This prevents nested submenus from inheriting the flex
-         * layout and ensures they stay hidden until hovered.
-         */
-        .main-nav > ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            gap: 1rem;
-        }
-
-        .main-nav li {
-            position: relative;
-        }
-
-        .main-nav > ul > li > a {
-            display: block;
-            padding: 0.5rem 0.75rem;
-            font-weight: 500;
-            color: var(--primary-color);
-            transition: background-color var(--transition-speed), color var(--transition-speed);
-        }
-
-        .main-nav > ul > li > a:hover {
-            color: #fff;
-            background-color: var(--primary-color);
-            border-radius: var(--border-radius);
-        }
-
-        .submenu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: #fff;
-            border: 1px solid var(--secondary-color);
-            border-radius: var(--border-radius);
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-            z-index: 50;
-        }
-
-        .submenu li a {
-            display: block;
-            padding: 0.5rem 1rem;
-            white-space: nowrap;
-            color: var(--primary-color);
-        }
-
-        .submenu li a:hover {
-            background-color: var(--secondary-color);
-            color: #fff;
-        }
-
-        .main-nav li.has-submenu:hover > .submenu {
-            display: block;
-        }
-
-        /* Sections */
-        .section {
-            padding: 3rem 0;
-            background-color: #fff;
-        }
-
-        .section.alt-bg {
-            background-color: var(--light-bg);
-        }
-
-        .section h2 {
-            margin-top: 0;
-            color: var(--primary-color);
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .section h3 {
-            margin-top: 0;
-            color: var(--primary-color);
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .section p {
-            margin-bottom: 1rem;
-            font-size: 1rem;
-        }
-
-        /* Styles for quotes section */
-            .quotes blockquote {
-                border-left: 4px solid var(--secondary-color);
-                margin: 1rem 0;
-                padding: 0.5rem 1rem;
-                background-color: var(--light-bg);
-                /* Ensure long quotes wrap within the container instead of overflowing */
-                max-width: 100%;
-                word-break: break-word;
-                overflow-wrap: anywhere;
-            }
-
-        .quotes blockquote p {
-            margin: 0.25rem 0;
-        }
-
-        /* Ensure the quotes container and blockquotes respect the container width */
-        .quotes {
-            width: 100%;
-        }
-
-        .quotes blockquote {
-            max-width: 100%;
-            overflow-wrap: anywhere;
-        }
-
-        /* Two column layouts */
-        .two-column {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .two-column .text {
-            flex: 1 1 50%;
-            min-width: 250px;
-        }
-
-        .two-column .image {
-            flex: 1 1 50%;
-            min-width: 250px;
-        }
-
-        /* Beschränkung der Bildhöhe in zweispaltigem Layout */
-        .two-column .image img {
-            max-height: 320px;
-            width: 100%;
-            object-fit: cover;
-            border-radius: var(--border-radius);
-        }
-
-        .two-column.reverse .text {
-            order: 2;
-        }
-
-        .two-column.reverse .image {
-            order: 1;
-        }
-
-        /* Contact form */
-        .contact-form {
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .contact-form .form-row {
-            margin-bottom: 1rem;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .contact-form label {
-            margin-bottom: 0.25rem;
-            font-weight: 500;
-        }
-
-        .contact-form input,
-        .contact-form select,
-        .contact-form textarea {
-            padding: 0.5rem;
-            border: 1px solid #ccc;
-            border-radius: var(--border-radius);
-            font-size: 1rem;
-            width: 100%;
-            resize: vertical;
-        }
-
-        .contact-form button {
-            background-color: var(--primary-color);
-            color: #fff;
-            border: none;
-            padding: 0.75rem 1.5rem;
-            font-size: 1rem;
-            border-radius: var(--border-radius);
-            cursor: pointer;
-            transition: background-color var(--transition-speed);
-        }
-
-        .contact-form button:hover {
-            background-color: var(--secondary-color);
-        }
-
-        /* Footer */
-        .footer {
-            background-color: #fff;
-            border-top: 3px solid var(--secondary-color);
-            padding: 2rem 0;
-            font-size: 0.9rem;
-        }
-
-        .footer h2 {
-            margin-top: 0;
-            color: var(--primary-color);
-        }
-
-        .footer a {
-            color: var(--primary-color);
-        }
-
-        /* WhatsApp button */
-        .whatsapp-button {
-            position: fixed;
-            bottom: 1.5rem;
-            right: 1.5rem;
-            width: 60px;
-            height: 60px;
-            background-color: #25d366;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: transform var(--transition-speed);
-            z-index: 150;
-        }
-
-        .whatsapp-button img {
-            width: 32px;
-            height: 32px;
-        }
-
-        .whatsapp-button:hover {
-            transform: scale(1.05);
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            /* Show the hamburger menu button on small screens */
-            #menu-toggle {
-                display: block;
-            }
-            /* Hide the navigation by default; stack items vertically when opened */
-            .main-nav > ul {
-                display: none;
-                flex-direction: column;
-                gap: 0;
-                width: 100%;
-            }
-            .main-nav > ul.open {
-                display: flex;
-            }
-            .main-nav > ul > li > a {
-                padding: 0.75rem;
-                width: 100%;
-            }
-            .submenu {
-                /* On mobile, always show submenus and place them in the normal flow */
-                display: block;
-                position: static;
-                border: none;
-                box-shadow: none;
-                margin-left: 1rem;
-            }
-            .submenu li a {
-                padding: 0.5rem 0;
-            }
-            .two-column {
-                flex-direction: column;
-            }
-            .two-column .text,
-            .two-column .image {
-                order: initial;
-            }
-
-        /* Menu toggle button (hidden by default on larger screens) */
-        #menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.75rem;
-            color: var(--primary-color);
-            cursor: pointer;
-            margin-right: 0.5rem;
-        }
-        }
-
-        /* Verstecke die detaillierten Sections auf der Startseite.  Die Inhalte werden auf separaten Seiten dargestellt. */
-        #lifecoaching,
-        #familie,
-        #kinder,
-        #job,
-        #sportcoaching,
-        #einzelsportler,
-        #mannschaft,
-        #trainer,
-        #ausbildung,
-        #kontakt {
-            display: none;
-        }
-    </style>
-</head>
-<body>
-    <!-- Floating WhatsApp button -->
-    <a class="whatsapp-button" href="https://wa.me/491752287170" target="_blank" aria-label="Kontakt per WhatsApp">
-        <!-- WhatsApp‑Icon: lokal gespeichert im Projektverzeichnis -->
-        <img src="whatsapp_icon.svg" alt="WhatsApp‑Icon" />
-    </a>
-
-    <header class="header">
-        <div class="container header-inner">
-            <div class="logo-and-title">
-                <!-- Verwende das Logo aus dem assets-Ordner -->
-                <img class="logo" src="logo_without_text.png" alt="Mentalcoach Timo Schreck Logo" />
-                <div class="site-title">
-                <h1>Mentalcoach&nbsp;Timo&nbsp;Schreck</h1>
-                    <p class="slogan">Fokus, Gelassenheit und Energie – Coaching für Leistungssteigerung und Lebensqualität</p>
-                </div>
-            </div>
-            <!-- Hamburger menu button for mobile screens -->
-            <button id="menu-toggle" aria-label="Menü öffnen oder schließen">☰</button>
-            <nav class="main-nav">
-                <ul>
-                    <li class="has-submenu"><a href="life-coaching.html">Life‑Coaching</a>
-                        <ul class="submenu">
-                            <li><a href="familie.html">Familie</a></li>
-                            <li><a href="kinder-jugendliche.html">Kinder &amp; Jugendliche</a></li>
-                            <li><a href="job.html">Job</a></li>
-                        </ul>
-                    </li>
-                    <li class="has-submenu"><a href="sport-mentalcoaching.html">Sport‑Mentalcoaching</a>
-                        <ul class="submenu">
-                            <li><a href="einzelsportler.html">Einzelsportler</a></li>
-                            <li><a href="mannschaftssport.html">Mannschaftssport</a></li>
-                            <li><a href="trainercoaching.html">Trainercoaching</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="ausbildung.html">Ausbildung</a></li>
-                    <li><a href="kontakt.html">Kontakt</a></li>
-                                        <li><a href="impressum.html">Impressum<</a></li>
-                                                                    
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <main>
-        <!-- Neue Startseite mit allgemeiner Einführung und Über mich -->
-        <section id="intro" class="section">
-            <div class="container">
-                <!-- Begrüßungstext in Du-Form -->
-                <h2>Herzlich willkommen auf meiner Seite!</h2>
-                <p>Mein Name ist Timo Schreck. Ich freue mich sehr, dass du hier bist! Ich begleite dich dabei, dein volles Potenzial zu entfalten und die mentalen Ressourcen zu nutzen, die in dir stecken. Ob im privaten Alltag, im beruflichen Umfeld oder im sportlichen Wettbewerb – mein Coaching stärkt deine mentale Stärke, schärft deinen Fokus und bringt mehr Gelassenheit und Energie in dein Leben. Gemeinsam entwickeln wir eine klare Vision für deine Zukunft und lösen innere Blockaden, die dich daran hindern, deine Ziele zu erreichen. Du lernst, wie du Stress in Gelassenheit verwandelst, Herausforderungen als Chancen wahrnimmst und aus Rückschlägen neue Kraft schöpfst. Ich biete dir und deiner Familie wertvolle Impulse, um Beziehungen zu vertiefen und ein harmonisches Miteinander zu schaffen; Kinder und Jugendliche unterstütze ich dabei, Selbstvertrauen aufzubauen und ihren eigenen Weg zu finden. Wenn du berufstätig bist, profitierst du von einer neuen Balance zwischen Leistung und Wohlbefinden, und als Sportlerin oder Sportler lernst du mentale Techniken, um im entscheidenden Moment Höchstleistungen zu erbringen. Als Trainer oder Trainerin erhältst du Strategien, um deine Teams mental zu stärken und dein eigenes Coaching zu optimieren. Und wenn du selbst Mentalcoach werden möchtest, begleite ich dich Schritt für Schritt auf diesem Weg. Ein Coaching ist eine Investition in dich selbst – für mehr Lebensqualität, Erfolg und innere Zufriedenheit.</p>
-
-                <h2>Was ist Mentalcoaching?</h2>
-                <p>Im Mentalcoaching geht es darum, mentale Stärke aufzubauen, den eigenen Fokus zu schärfen und innere Gelassenheit zu finden. Mit verschiedenen Methoden wie Vision‑Entwicklung, Wheel&nbsp;of&nbsp;Life, Reframing und Glaubenssatzarbeit unterstützt ein Mentalcoach Menschen dabei, blockierende Muster zu lösen, persönliche Ziele zu definieren und ihre innere Balance zu stärken. Dadurch können Sie Herausforderungen im Alltag, Beruf und Sport mit mehr Energie, Selbstvertrauen und Klarheit begegnen.</p>
-
-                <!-- Inspirierende Zitate zum Mentalcoaching -->
-                <div class="quotes">
-                    <blockquote>
-                        <p>“In a growth mindset, challenges are exciting rather than threatening.” – Carol Dweck</p>
-                        <p><em>„In einer Wachstumsmentalität sind Herausforderungen aufregend statt bedrohlich.“</em></p>
-                    </blockquote>
-                    <blockquote>
-                        <p>“It is fine to celebrate success, but it is more important to heed the lessons from failure.” – Bill Gates</p>
-                        <p><em>„Erfolge zu feiern ist gut, aber es ist noch wichtiger, die Lektionen aus dem Scheitern zu beherzigen.“</em></p>
-                    </blockquote>
-                    <blockquote>
+<html class="nojs" lang="de">
+    <head>
+        <meta charset="UTF-8">
+        <title>Mentalcoach Mannheim – Sport- und Life Coaching | Timo Schreck</title>
+        <style media="screen">html{visibility:hidden;opacity:0;overflow:hidden;}</style>
+        <script type="text/javascript">(function(html){ "use strict"; html.className = html.className.replace(/nojs/, "js"); })(document.documentElement);</script>
+        <meta name="description" content="Professionelles Life- und Sport-Coaching in Mannheim mit Timo Schreck. Mentales Training, Persönlichkeitsentwicklung und Coaching für Sportler.">
+        <link rel="canonical" href="https://mentalcoach-ts.de/">
+        <meta name="theme-color" content="#FFE599">
+        <meta name="apple-mobile-web-app-status-bar-style" content="#FFE599">
+        <meta name="robots" content="all">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+        <meta name="apple-mobile-web-app-title" content="Mentalcoach Mannheim – Sport- und Life Coaching | Timo Schreck">
+        <meta name="application-name" content="Mentalcoach Mannheim – Sport- und Life Coaching | Timo Schreck">
+        <meta name="format-detection" content="telephone=no">
+        <meta property="og:url" content="https://mentalcoach-ts.de/">
+        <meta property="og:title" content="Mentalcoach Mannheim – Sport- und Life Coaching | Timo Schreck">
+        <meta property="og:description" content="Professionelles Life- und Sport-Coaching in Mannheim mit Timo Schreck. Mentales Training, Persönlichkeitsentwicklung und Coaching für Sportler.">
+        <meta property="og:type" content="website">
+        <meta property="og:image" content="https://mentalcoach-ts.de/file/i/cd3a3edda96392222.png">
+        <meta property="og:image:width" content="699">
+        <meta property="og:image:height" content="398">
+        <meta name="twitter:title" content="Mentalcoach Mannheim – Sport- und Life Coaching | Timo Schreck">
+        <meta name="twitter:description" content="Professionelles Life- und Sport-Coaching in Mannheim mit Timo Schreck. Mentales Training, Persönlichkeitsentwicklung und Coaching für Sportler.">
+        <meta name="twitter:image" content="https://mentalcoach-ts.de/file/i/cd3a3edda96392222.png">
+        <style id="wbk-elementvars">:root{--wbk-logo-width:0px;--wbk-logo-height:0px;--wbk-logo-innerwidth:0px;--wbk-logo-innerheight:0px;--wbk-title-width:0px;--wbk-title-height:0px;--wbk-title-innerwidth:0px;--wbk-title-innerheight:0px;--wbk-subtitle-width:0px;--wbk-subtitle-height:0px;--wbk-subtitle-innerwidth:0px;--wbk-subtitle-innerheight:0px;--wbk-headline-width:0px;--wbk-headline-height:0px;--wbk-headline-innerwidth:0px;--wbk-headline-innerheight:0px;--wbk-main-nav-width:0px;--wbk-main-nav-height:0px;--wbk-main-nav-innerwidth:0px;--wbk-main-nav-innerheight:0px;--wbk-sub-nav-width:0px;--wbk-sub-nav-height:0px;--wbk-sub-nav-innerwidth:0px;--wbk-sub-nav-innerheight:0px;--wbk-languages-width:0px;--wbk-languages-height:0px;--wbk-languages-innerwidth:0px;--wbk-languages-innerheight:0px;--wbk-content-width:0px;--wbk-content-height:0px;--wbk-content-innerwidth:0px;--wbk-content-innerheight:0px;--wbk-footer-width:0px;--wbk-footer-height:0px;--wbk-footer-innerwidth:0px;--wbk-footer-innerheight:0px;--wbk-header-width:0px;--wbk-header-height:0px;--wbk-header-innerwidth:0px;--wbk-header-innerheight:0px;--wbk-actionbar-1-width:0px;--wbk-actionbar-1-height:0px;--wbk-actionbar-1-innerwidth:0px;--wbk-actionbar-1-innerheight:0px;--wbk-actionbar-2-width:0px;--wbk-actionbar-2-height:0px;--wbk-actionbar-2-innerwidth:0px;--wbk-actionbar-2-innerheight:0px;}</style>
+        <link rel="preload" href="/font.css?v=1777866524" as="style">
+        <link rel="stylesheet" type="text/css" href="/font.css?v=1777866524">
+        <link rel="preload" href="/vars.css?v=1777866524" as="style">
+        <link rel="stylesheet" type="text/css" href="/vars.css?v=1777866524">
+        <link rel="preload" href="/main.css?v=1777866524" as="style">
+        <link rel="stylesheet" type="text/css" href="/main.css?v=1777866524">
+        <link rel="preload" href="/animations.css?v=1777866524" as="style">
+        <link rel="stylesheet" type="text/css" href="/animations.css?v=1777866524">
+        <script type="text/javascript" src="/script.js?v=d1f449339ef28eb3a3c3a66e4a69c332" defer="defer"></script>    </head>
+    <body class="wbk-mnav-closed wbk-is-startpage wbk-has-logo wbk-no-actionbar1 wbk-no-actionbar2 wbk-has-title wbk-has-subtitle wbk-no-languages wbk-has-mainnav wbk-mainnav-position-static wbk-no-subnav" >
         
-                        <p><em>„Es gibt keinen Weg an harter Arbeit vorbei. Nimm sie an. Du musst viele Stunden investieren, denn es gibt immer etwas, das du verbessern kannst.“</em></p>
-                    </blockquote>
-                    <blockquote>
-                        <p>“I can only control my performance. If I do my best, then I can feel good at the end of the day.” – Michael Phelps</p>
-                        <p><em>„Ich kann nur meine eigene Leistung kontrollieren. Wenn ich mein Bestes gebe, kann ich mich am Ende des Tages gut fühlen.“</em></p>
-                    </blockquote>
-                    <blockquote>
-                        <p>“Everything is possible as long as you put your mind to it and you put the work and time into it. I think your mind really controls everything.” – Michael Phelps</p>
-                        <p><em>„Alles ist möglich, solange du deinen Geist darauf ausrichtest und Arbeit und Zeit investierst. Ich glaube, dein Geist kontrolliert wirklich alles.“</em></p>
-                    </blockquote>
-                    <blockquote>
-                        <p>“Champions aren’t made in gyms. Champions are made from something they have deep inside of them; a desire, a dream, a vision.” – Muhammad Ali</p>
-                        <p><em>„Champions werden nicht im Fitnessstudio gemacht. Sie werden aus etwas geformt, das tief in ihnen steckt: einem Wunsch, einem Traum, einer Vision.“</em></p>
-                    </blockquote>
-                </div>
-            </div>
-        </section>
+	
+	<header><div id="wbk-header">
 
-        <section id="about" class="section alt-bg">
-            <div class="container two-column">
-                <div class="text">
-                    <h2>Über mich</h2>
-                    <p>Als ehemaliger Leistungssportler und langjähriger Trainer habe ich hautnah erlebt, wie entscheidend mentale Stärke für Erfolg und Lebensqualität ist. Nach meiner aktiven Sportkarriere habe ich mich umfassend zum Mentalcoach und Lifecoach ausbilden lassen und Fortbildungen wie den Emotions Code und Emotional Freedom Techniques absolviert. Heute begleite ich Familien, Kinder und Jugendliche, Berufstätige sowie Sportlerinnen und Sportler auf ihrem Weg zu mehr Fokus, Gelassenheit und Energie.</p>
-                    <p>In meiner Arbeit verbinde ich empathisches, wertschätzendes Coaching mit praxisorientierten Methoden aus der Sportpsychologie und Persönlichkeitsentwicklung. Mein Ziel ist es, Menschen dabei zu unterstützen, ihre Potenziale zu erkennen, belastende Glaubenssätze zu lösen und mit einer klaren Vision ihre Ziele zu erreichen – für mehr Lebensqualität und nachhaltige Spitzenleistung.</p>
-                </div>
-                <div class="image">
-                    <!-- Foto einer Gruppe beim Training als Symbol für Entwicklung und Wachstum -->
-                    <img src="team_sports.jpg" alt="Gruppe beim Training" />
-                </div>
-            </div>
-        </section>
-        <!-- Life‑Coaching general introduction -->
-        <section id="lifecoaching" class="section">
-            <div class="container">
-                <h2>Life‑Coaching</h2>
-                <p>Im Life‑Coaching begleite ich Sie dabei, klare Ziele zu formulieren, belastende Muster zu lösen und eine nachhaltige Balance im Alltag zu entwickeln. Methoden wie Vision‑Entwicklung, Wheel of Life, Reframing sowie Glaubenssatz‑ und Ressourcenarbeit unterstützen Sie dabei, neue Perspektiven zu gewinnen und Ihre Lebensqualität zu steigern.</p>
-            </div>
-        </section>
+		   
+		    <div class="nav-container"><div id="wbk-logo" data-wbk-viewport-align="desktop-left tablet-left mobile-left"><a href="/"><img alt="Mentalcoach Mannheim – Sport- und Life Coaching Timo Schreck" loading="eager" src="/file/i/cd3a3edda96392222.png" width="699" height="398"></a></div><a href="/de/sitemap/" onclick="return false;" id="wbk-mnav-button" aria-haspopup="true" aria-expanded="false" aria-label="Show navigation"><svg aria-hidden="true" class="opener" xmlns="http://www.w3.org/2000/svg" version="1.1" width="46" height="46" viewBox="0 0 46 46"><path d="m 4,33 38,0 0,4 -38,0 z m 0,-12 38,0 0,4 -38,0 z M 4,9 42,9 42,13 4,13 z" /></svg><svg aria-hidden="true" class="hider" xmlns="http://www.w3.org/2000/svg" version="1.1" width="46" height="46" viewBox="0 0 46 46"><path d="M 10.96875,8.15625 8.15625,10.96875 20.1875,23 8.15625,35.03125 10.96875,37.84375 23,25.8125 35.03125,37.84375 37.84375,35.03125 25.8125,23 37.84375,10.96875 35.03125,8.15625 23,20.1875 10.96875,8.15625 z" /></svg></a><nav><div id="wbk-anchoroffset"></div><ul id="wbk-main-nav"><li class="active"><a data-wbk-behavior="self" href="/"><span class="txt">Startseite</span></a></li><li class="hasChildren"><a href="/life-coaching.html"><span class="txt">Life Coaching</span></a><button class="expand" aria-haspopup="true" aria-expanded="false" aria-label="Show"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" version="1.1" width="32" height="32" viewBox="0 0 32 32"><path d="M 5.0834812,6.9296576 1.4713978,10.54174 15.999998,25.070342 30.528602,10.54174 26.916518,6.9296576 15.999998,17.846175 z" /></svg></button><ul><li><a href="/life-coaching/familie.html"><span class="txt">Familie</span></a></li><li><a href="/life-coaching/kinder-jugendliche.html"><span class="txt">Kinder &amp; Jugendliche</span></a></li><li class="hasChildren"><a href="/life-coaching/job.html"><span class="txt">Job</span></a><button class="expand" aria-haspopup="true" aria-expanded="false" aria-label="Show"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" version="1.1" width="32" height="32" viewBox="0 0 32 32"><path d="M 5.0834812,6.9296576 1.4713978,10.54174 15.999998,25.070342 30.528602,10.54174 26.916518,6.9296576 15.999998,17.846175 z" /></svg></button><ul><li><a href="/life-coaching/job/berufung.html"><span class="txt">Berufung</span></a></li></ul></li></ul></li><li class="hasChildren"><a href="/sport-mentalcoaching.html"><span class="txt">Sport-Mentalcoaching</span></a><button class="expand" aria-haspopup="true" aria-expanded="false" aria-label="Show"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" version="1.1" width="32" height="32" viewBox="0 0 32 32"><path d="M 5.0834812,6.9296576 1.4713978,10.54174 15.999998,25.070342 30.528602,10.54174 26.916518,6.9296576 15.999998,17.846175 z" /></svg></button><ul><li><a href="/sport-mentalcoaching/einzelsportler.html"><span class="txt">Einzelsportler</span></a></li><li><a href="/sport-mentalcoaching/mannschaftssport.html"><span class="txt">Mannschaftssport</span></a></li><li><a href="/sport-mentalcoaching/trainercoaching.html"><span class="txt">Trainercoaching</span></a></li></ul></li><li><a href="/coaching-im-soundformat.html"><span class="txt">Coaching im Soundformat</span></a></li><li><a href="/ausbildung.html"><span class="txt">Ausbildung</span></a></li><li><a href="/kontakt.html"><span class="txt">Kontakt</span></a></li><li><a rel="nofollow" href="/impressum.html"><span class="txt">Impressum</span></a></li><li><a rel="nofollow" href="/datenschutz.html"><span class="txt">Datenschutz</span></a></li></ul></nav>
+		    </div>
+		
+		<div class="hero-section"><div id="wbk-title" class="aligncenter"><a href="/"><span>Mentalcoach Mannheim – <br />
+Sport- und Life Coaching <br />
+Timo Schreck</span></a></div><div id="wbk-subtitle" class="aligncenter"><span>Fokus, Gelassenheit und Energie</span></div>
+</div><h1 id="wbk-headline" class="aligncenter"><span>Startseite</span></h1>
+</div>
+</header>
+	
+	<main><div id="wbk-content" class="ct cm">
+<div class="wbk-widget wbk-widget-section">
+<section class="wbk-widget-content wbk-widget-content-section">
+<div class="wbk-widget wbk-widget-spacer wbk-inner-content">
+<div class="wbk-widget-content wbk-widget-content-spacer" style="height:35px;"></div></div>
+<div class="wbk-row wbk-inner-content">
+<div class="wbk-column" style="width:15.6%" data-wbk-valign="top">
+<div class="wbk-widget wbk-widget-spacer">
+<div class="wbk-widget-content wbk-widget-content-spacer" style="height:16px;"></div></div>
+</div>
+<div class="wbk-column" style="width:74.332%" data-wbk-valign="top">
+<div class="wbk-widget wbk-widget-group">
+<div class="wbk-widget-content wbk-widget-content-group" >
+<div class="wbk-widget wbk-widget-text wbk-widget-text-headline cd">
+<div class="wbk-widget-content wbk-widget-content-text" >
+<div><h2>
+    Herzlich willkommen auf meiner Seite!
+</h2></div>
+</div>
+</div>
+<div class="wbk-widget wbk-widget-text cd">
+<div class="wbk-widget-content wbk-widget-content-text" >
+<div><p>
+    Herzlich willkommen! Schön, dass Du hier bist. Auf meiner Seite
+    dreht sich alles um dein mentales Potenzial und wie du es im
+    Sport und im Leben einsetzen kannst. Ich begleite
+    Sportlerinnen, Sportler, Trainer und Menschen wie dich dabei,
+    fokussierter, gelassener und voller Energie zu werden. Als
+    Mentalcoach helfe ich Dir, deine inneren Barrieren zu
+    überwinden, deine Stärken zu nutzen und mit Freude und
+    Leichtigkeit deine Ziele zu erreichen.
+</p></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="wbk-column" style="width:10.068%" data-wbk-valign="top">
+<div class="wbk-widget wbk-widget-spacer">
+<div class="wbk-widget-content wbk-widget-content-spacer" style="height:16px;"></div></div>
+</div>
+</div>
+<div class="wbk-widget wbk-widget-spacer wbk-inner-content">
+<div class="wbk-widget-content wbk-widget-content-spacer" style="height:25px;"></div></div>
+<div class="wbk-widget wbk-widget-hr wbk-inner-content">
+<style class="wbk-ws">#wbk-content .wbk-widget-content-hr[data-wbk-css-id="wbk-id-w22c"] > hr{margin:0;padding:0;border:none;height:1px;background:#7F6000;}</style><div data-wbk-css-id="wbk-id-w22c" class="wbk-widget-content wbk-widget-content-hr"><hr  ></div>
+</div>
+</section>
+</div>
+<div class="wbk-widget wbk-widget-spacer wbk-inner-content">
+<div class="wbk-widget-content wbk-widget-content-spacer" style="height:32px;"></div></div>
+<div class="wbk-widget wbk-widget-section">
+<section class="wbk-widget-content wbk-widget-content-section">
+<div class="wbk-row wbk-inner-content">
+<div class="wbk-column" style="width:14.256%" data-wbk-valign="top">
+<div class="wbk-widget wbk-widget-spacer">
+<div class="wbk-widget-content wbk-widget-content-spacer" style="height:16px;"></div></div>
+</div>
+<div class="wbk-column" style="width:71.501%" data-wbk-valign="top">
+<div class="wbk-widget wbk-widget-group">
+<div class="wbk-widget-content wbk-widget-content-group" >
+<div class="wbk-widget wbk-widget-text wbk-widget-text-headline cd">
+<div class="wbk-widget-content wbk-widget-content-text" >
+<div><h5>
+    Was ist Mentalcoaching?
+</h5></div>
+</div>
+</div>
+<div class="wbk-widget wbk-widget-text wbk-widget-text-headline cd">
+<div class="wbk-widget-content wbk-widget-content-text" >
+<div><h2>
+    Mentalcoaching – Eine ganzheitliche Methode
+</h2></div>
+</div>
+</div>
+<div class="wbk-widget wbk-widget-image">
+<style class="wbk-ws">#wbk-content .wbk-widget-content-image[data-wbk-css-id="wbk-id-w28c"] .wbk-image-width{width:100vw;}@media all and (max-width:834px){#wbk-content .wbk-widget-content-image[data-wbk-css-id="wbk-id-w28c"] .wbk-image-width{width:686px !important;}}</style><div data-wbk-css-id="wbk-id-w28c" class="wbk-widget-content wbk-widget-content-image">
+<figure ><span class="wbk-image-width"><span class="wbk-image-height"><img src="/file/i/095538f4f15803222.jpg" alt="" width="1280" height="1002"></span></span></figure></div>
+</div>
+<div class="wbk-widget wbk-widget-text cd">
+<div class="wbk-widget-content wbk-widget-content-text" >
+<div><p>
+    Mentalcoaching ist eine ganzheitliche Methode, die Dich dabei
+    unterstützt, mentale Barrieren zu überwinden, dein Potenzial
+    voll auszuschöpfen und Deine Ziele mit Klarheit und
+    Entschlossenheit zu verfolgen. Es hilft Dir, Deine Gedanken,
+    Gefühle und Handlungen in Einklang zu bringen, Stress abzubauen
+    und Deine innere Stärke zu entwickeln, damit Du mit
+    Gelassenheit und Energie durchs Leben gehst.
+</p></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="wbk-column" style="width:14.243%" data-wbk-valign="top">
+<div class="wbk-widget wbk-widget-spacer">
+<div class="wbk-widget-content wbk-widget-content-spacer" style="height:16px;"></div></div>
+</div>
+</div>
+<div class="wbk-widget wbk-widget-spacer wbk-inner-content">
+<div class="wbk-widget-content wbk-widget-content-spacer" style="height:32px;"></div></div>
+</section>
+</div>
+</div>
+</main>
+	<footer><div id="wbk-footer" class="ct cm">
+<div class="wbk-row wbk-inner-content">
+<div class="wbk-column" style="width:77.423%" data-wbk-valign="top">
+<div class="wbk-widget wbk-widget-image">
+<style class="wbk-ws">#wbk-footer .wbk-widget-content-image[data-wbk-css-id="wbk-id-w13f"] .wbk-image-width{width:200px;}@media all and (max-width:834px){#wbk-footer .wbk-widget-content-image[data-wbk-css-id="wbk-id-w13f"] .wbk-image-width{width:200px !important;}}</style><div data-wbk-css-id="wbk-id-w13f" class="wbk-widget-content wbk-widget-content-image">
+<figure ><span class="wbk-image-width"><span class="wbk-image-height"><img src="/file/i/e51c18ef996392222.png" alt="" width="320" height="182"></span></span></figure></div>
+</div>
+</div>
+<div class="wbk-column" style="width:18.373%" data-wbk-valign="top">
+<div class="wbk-widget wbk-widget-group">
+<div class="wbk-widget-content wbk-widget-content-group" >
+<div class="wbk-widget wbk-widget-text wbk-widget-text-headline">
+<div class="wbk-widget-content wbk-widget-content-text" >
+<div><h2>
+    Soziale Medien
+</h2></div>
+</div>
+</div>
+<div class="wbk-widget wbk-widget-link">
+<div class="wbk-widget-content wbk-widget-content-link" data-wbk-appearance="text">
+<a  ><span>Facebook</span></a>
+</div>
+</div>
+<div class="wbk-widget wbk-widget-link">
+<div class="wbk-widget-content wbk-widget-content-link" data-wbk-appearance="text">
+<a  ><span>Instagram</span></a>
+</div>
+</div>
+<div class="wbk-widget wbk-widget-link">
+<div class="wbk-widget-content wbk-widget-content-link" data-wbk-appearance="text">
+<a  ><span>Youtube</span></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="wbk-widget wbk-widget-spacer wbk-inner-content">
+<div class="wbk-widget-content wbk-widget-content-spacer" style="height:32px;"></div></div>
+<div class="wbk-widget wbk-widget-hr wbk-inner-content">
+<style class="wbk-ws">#wbk-footer .wbk-widget-content-hr[data-wbk-css-id="wbk-id-w23f"] > hr{margin:0;padding:0;border:none;height:2px;background:#FFFFFF;}</style><div data-wbk-css-id="wbk-id-w23f" class="wbk-widget-content wbk-widget-content-hr"><hr  ></div>
+</div>
+</div>
+</footer>
 
-        <!-- Familie subsection -->
-        <section id="familie" class="section alt-bg">
-            <div class="container two-column">
-                <div class="text">
-                    <h3>Familie</h3>
-                    <p>Als erfahrener Lifecoach unterstütze ich Eltern dabei, ihre Beziehungen zu stärken, eine positive Kommunikation zu fördern und gemeinsame Werte zu definieren. Gemeinsam erarbeiten wir Wege, um Konflikte friedlich zu lösen, Vertrauen zu vertiefen und eine liebevolle, harmonische Familienkultur zu schaffen, die alle Mitglieder trägt und wachsen lässt.</p>
-                </div>
-                <div class="image">
-                    <!-- Abstraktes Bild zur Darstellung des Coaching-Themas Familie -->
-                    <!-- Echtes Foto einer glücklichen Familie aus dem öffentlichen Domain-Archiv -->
-                    <img src="family_photo.jpg" alt="Glückliche Familie" />
-                </div>
-            </div>
-        </section>
-
-        <!-- Kinder und Jugendliche subsection -->
-        <section id="kinder" class="section">
-            <div class="container two-column reverse">
-                <div class="text">
-                    <h3>Kinder &amp; Jugendliche</h3>
-                    <p>Ich begleite Kinder und Jugendliche dabei, ihr Selbstvertrauen zu stärken, schulischen Druck abzubauen und ihren eigenen Weg voller Zuversicht zu gehen. Mit spielerischen Übungen und Techniken zur Emotionsregulation lernen junge Menschen, Stress zu bewältigen, Fokus zu finden und ihre Talente zu entfalten – für einen positiven Start ins Erwachsenenleben.</p>
-                </div>
-                <div class="image">
-                    <!-- Echtes Foto spielender Kinder für den Bereich Kinder & Jugendliche -->
-                    <img src="children_playing.jpg" alt="Kinder und Jugendliche beim Spielen" />
-                </div>
-            </div>
-        </section>
-
-        <!-- Job subsection -->
-        <section id="job" class="section alt-bg">
-            <div class="container two-column">
-                <div class="text">
-                    <h3>Job &amp; Berufung</h3>
-                    <p>Im beruflichen Kontext helfe ich Ihnen, Klarheit über Ihre Ziele zu gewinnen, Stresssituationen souverän zu meistern und Ihre Motivation nachhaltig zu stärken. Gemeinsam entwickeln wir Strategien für eine gesunde Work‑Life‑Balance, damit Sie Leistungsfreude, innere Gelassenheit und beruflichen Erfolg in Einklang bringen können.</p>
-                </div>
-                <div class="image">
-                    <!-- Foto eines Berufstätigen am Laptop für den Themenbereich Job -->
-                    <img src="job.jpg" alt="Berufstätiger am Laptop" />
-                </div>
-            </div>
-        </section>
-
-        <!-- Sport‑Mentalcoaching general -->
-        <section id="sportcoaching" class="section">
-            <div class="container">
-                <h2>Sport‑Mentalcoaching</h2>
-                <p>Als ehemaliger Leistungssportler und langjähriger Trainer weiß ich, wie wichtig mentale Stärke für sportlichen Erfolg ist. In meinem Sport‑Mentalcoaching fördere ich Fokussierung, Motivation und Resilienz, damit Sie im Wettkampf Ihr volles Potenzial abrufen können. Ich arbeite mit Einzelsportlern, Teams und Trainern an individuellen Zielen und Strategien.</p>
-            </div>
-        </section>
-
-        <!-- Einzelsportler subsection -->
-        <section id="einzelsportler" class="section alt-bg">
-            <div class="container two-column">
-                <div class="text">
-                    <h3>Einzelsportler</h3>
-                    <p>Ob Sie Ihre Leistungsgrenze verschieben oder Rückschläge verarbeiten möchten – als Mentalcoach unterstütze ich Sie mit bewährten Techniken wie Visualisierung, Emotions Code und Emotional Freedom Techniques. Sie lernen, Ihre Gedanken zu fokussieren, Anspannung abzubauen und im entscheidenden Moment in den Flow‑Zustand zu gelangen.</p>
-                </div>
-                <div class="image">
-                    <!-- Foto eines Einzelsportlers beim Training -->
-                    <img src="single_athlete.jpg" alt="Einzelsportler beim Training" />
-                </div>
-            </div>
-        </section>
-
-        <!-- Mannschaftssport subsection -->
-        <section id="mannschaft" class="section">
-            <div class="container two-column reverse">
-                <div class="text">
-                    <h3>Mannschaftssport</h3>
-                    <p>Im Teamcoaching geht es darum, den Teamgeist zu stärken, gemeinsame Visionen zu entwickeln und mit mentalen Tools erfolgreich zusammenzuarbeiten. Wir trainieren den Umgang mit Drucksituationen, stärken die Kommunikation und schaffen ein leistungsförderndes Umfeld, in dem jedes Mitglied sein Potenzial einbringen kann.</p>
-                </div>
-                <div class="image">
-                    <!-- Foto von Mannschaftssportlern in Aktion -->
-                    <img src="team_sports.jpg" alt="Mannschaftssport in Aktion" />
-                </div>
-            </div>
-        </section>
-
-        <!-- Trainercoaching subsection -->
-        <section id="trainer" class="section alt-bg">
-            <div class="container two-column">
-                <div class="text">
-                    <h3>Trainercoaching</h3>
-                    <p>Trainer stehen vor der Herausforderung, Talente zu fördern, Teams zu führen und gleichzeitig ihr eigenes Wohlbefinden im Blick zu behalten. Im Trainercoaching reflektieren wir Ihre Führungsrolle, vermitteln mentale Strategien zur Motivation und zeigen Wege, wie Sie Ihre Mannschaft langfristig zum Erfolg begleiten.</p>
-                </div>
-                <div class="image">
-                    <!-- Foto eines Trainers beim Coaching -->
-                    <img src="trainer_coaching.jpg" alt="Trainer beim Coaching" />
-                </div>
-            </div>
-        </section>
-
-        <!-- Ausbildung -->
-        <section id="ausbildung" class="section">
-            <div class="container two-column">
-                <div class="text">
-                    <h2>Ausbildung zum Sport‑Mentalcoach</h2>
-                    <p>Sie möchten selbst Sportlerinnen und Sportler auf ihrem mentalen Weg begleiten? In meiner Ausbildung zum Sport‑Mentalcoach vermittle ich Ihnen fundiertes Wissen aus der Sportpsychologie, energetische Coaching‑Ansätze und praxisorientierte Methoden. Die Ausbildung richtet sich an Trainer, Sportler und alle, die die mentalen Prozesse hinter Spitzenleistungen verstehen und vermitteln möchten.</p>
-                </div>
-                <div class="image">
-                    <!-- Abstraktes Bild für die Ausbildung zum Sport‑Mentalcoach -->
-                    <!-- Foto einer Gruppe beim Training für die Ausbildung zum Sport-Mentalcoach -->
-                    <img src="team_sports.jpg" alt="Gruppe beim Training" />
-                </div>
-            </div>
-        </section>
-
-        <!-- Kontakt -->
-        <section id="kontakt" class="section alt-bg">
-            <div class="container">
-                <h2>Kontakt</h2>
-                <form class="contact-form" action="#" method="post" onsubmit="return false;">
-                    <div class="form-row">
-                        <label for="vorname">Vorname:</label>
-                        <input type="text" id="vorname" name="vorname" required>
-                    </div>
-                    <div class="form-row">
-                        <label for="name">Name:</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-row">
-                        <label for="telefon">Telefon:</label>
-                        <input type="tel" id="telefon" name="telefon">
-                    </div>
-                    <div class="form-row">
-                        <label for="email">E‑Mail:</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-row">
-                        <label for="thema">Mein Thema:</label>
-                        <select id="thema" name="thema" required>
-                            <option value="">Bitte wählen …</option>
-                            <option value="lifecoaching">Life‑Coaching</option>
-                            <option value="sportcoaching">Sport‑Mentalcoaching</option>
-                            <option value="ausbildung">Ausbildung</option>
-                        </select>
-                    </div>
-                    <div class="form-row">
-                        <label for="nachricht">Ihre Nachricht:</label>
-                        <textarea id="nachricht" name="nachricht" rows="4" maxlength="250" placeholder="Ihre Nachricht (max. 250 Zeichen)"></textarea>
-                    </div>
-                    <div class="form-row">
-                        <label for="kontaktart">Bitte um:</label>
-                        <select id="kontaktart" name="kontaktart" required>
-                            <option value="">Bitte wählen …</option>
-                            <option value="ruckruf">Rückruf</option>
-                            <option value="email">E‑Mail</option>
-                            <option value="whatsapp">WhatsApp‑Nachricht</option>
-                        </select>
-                    </div>
-                    <div class="form-row">
-                        <label for="erreichbarkeit">Dann bin ich am besten zu erreichen:</label>
-                        <input type="text" id="erreichbarkeit" name="erreichbarkeit" placeholder="z. B. werktags ab 18 Uhr">
-                    </div>
-                    <div class="form-row submit-row">
-                        <button type="submit">Nachricht senden</button>
-                    </div>
-                </form>
-            </div>
-        </section>
-    </main>
-
-    
-       
-            <p>Mentalcoach&nbsp;Timo Schreck<br>
-            Villinger Straße 20<br>
-            68239&nbsp;Mannheim<br>
-            Telefon: <a href="tel:+491752287170">+49&nbsp;175‑2287170</a><br>
-            E‑Mail: <a href="mailto:office@mentalcoach-ts.de">office@mentalcoach-ts.de</a></p>
-            <p>Angaben gemäß §&nbsp;5&nbsp;DDG (ehemals TMG) und §&nbsp;18&nbsp;MStV. Für den Inhalt dieser Website verantwortlich: Timo Schreck. Weitere gesetzliche Pflichtangaben wie Registereintrag oder USt‑ID sind für dieses Einzelunternehmen nicht erforderlich.</p>
-        </div>
-    </footer>
-    <!-- Inline JavaScript für einfache Interaktionen -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const messageField = document.getElementById('nachricht');
-            if (messageField) {
-                const maxLength = parseInt(messageField.getAttribute('maxlength') || '250', 10);
-                const counter = document.createElement('small');
-                counter.className = 'char-counter';
-                counter.textContent = `0/${maxLength}`;
-                messageField.parentNode?.appendChild(counter);
-                messageField.addEventListener('input', () => {
-                    const currentLength = messageField.value.length;
-                    counter.textContent = `${currentLength}/${maxLength}`;
-                });
-            }
-        });
-    </script>
-    <script src="script.js"></script>
-</body>
+        <!-- 9a035c8d178c28012b50d55edcef16c8fef4bd2b38155024b60725b58fbcc2cfb06aef10001897cae8a5a9e7fd4013d5f0557783c7c9c679c699a61c76f2b36c29c567b648b6eafd41a23f22bf3dbc96ce424c8f51324b53aa1e2e178c21d61b64ed02207ad6f07b7015071219da861f356b0b8183f311adc364f6252720b5a9 -->
+    </body>
 </html>
