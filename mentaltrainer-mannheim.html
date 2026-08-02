@@ -102,7 +102,7 @@
   }
   .whatsapp-fab svg{width:30px; height:30px;}
   .whatsapp-fab:hover{transform:scale(1.08);}
-   (max-width:640px){ .whatsapp-fab{width:50px; height:50px; bottom:16px; right:16px;} .whatsapp-fab svg{width:26px; height:26px;} }
+  @media (max-width:640px){ .whatsapp-fab{width:50px; height:50px; bottom:16px; right:16px;} .whatsapp-fab svg{width:26px; height:26px;} }
 
   /* -------- Atemring signature seam (wiederkehrendes Markenelement) -------- */
   .ring-seam{position:relative; height:0; z-index:6; display:flex; justify-content:center; pointer-events:none;}
@@ -405,8 +405,7 @@
     <div class="wrap hero-copy">
       <p class="eyebrow on-dark">Persönlich, lokal und klar strukturiert</p>
       <h1>Mentaltrainer Mannheim</h1>
-      <p class="lede">Als Mentaltrainer in Mannheim unterstütze ich Dich dabei, mentale Routinen aufzubauen, fokussierter zu handeln und innere Ressourcen bewusster zu nutzen. Der Ansatz ist praktisch, klar und auf Deinen Alltag übertragbar.</p>
-      <p class="price-note">Coaching-Einheiten liegen transparent im Bereich von 125–249 € je nach Format und Rahmen.</p>
+      <p class="lede" style="margin-bottom:36px;">Als Mentaltrainer in Mannheim unterstütze ich Dich dabei, mentale Routinen aufzubauen, fokussierter zu handeln und innere Ressourcen bewusster zu nutzen. Der Ansatz ist praktisch, klar und auf Deinen Alltag übertragbar.</p>
       <div class="cta-row">
         <a href="kontakt.html" class="btn-primary">Kostenloses Erstgespräch vereinbaren</a>
         <a href="#ablauf" class="btn-ghost">So läuft's ab →</a>
@@ -591,7 +590,6 @@
   "logo": "https://mentalcoach-ts.de/assets/logo-dunkel.png",
   "url": "https://mentalcoach-ts.de/",
   "telephone": "+49-175-2287170",
-  "priceRange": "€€",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Villinger Straße 20",
