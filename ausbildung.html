@@ -114,12 +114,8 @@
   header{position:fixed; top:0; left:0; right:0; z-index:50; padding:20px 0; transition:background .3s var(--ease), padding .3s var(--ease), border-color .3s var(--ease); border-bottom:1px solid transparent;}
   header.scrolled{background:rgba(32,36,44,.94); backdrop-filter:blur(8px); padding:12px 0; border-color:rgba(255,229,153,.14);}
   header .wrap{display:flex; align-items:center; justify-content:space-between; gap:24px;}
-  .brand-lockup{display:flex; align-items:center; gap:10px;}
-  .brand-lockup img{height:34px; width:auto;}
-  .logo-light{display:block;}
-  .logo-dark{display:none;}
-  header.scrolled .logo-light{display:none;}
-  header.scrolled .logo-dark{display:block;}
+  .brand-lockup{display:flex; align-items:center;}
+  .brand-lockup img{height:68px; width:68px; object-fit:contain;}
 
   nav.primary-nav{display:flex; align-items:center; gap:8px;}
   .nav-links{display:flex; gap:2px; align-items:center;}
@@ -322,9 +318,8 @@
 
 <header id="siteHeader">
   <div class="wrap">
-    <a href="#top" class="brand-lockup">
-      <img src="assets/logo-dunkel.png" alt="Timo Schreck – Mentalcoaching Mannheim" class="logo-light">
-      <img src="assets/logo-hell.png" alt="Timo Schreck – Mentalcoaching Mannheim" class="logo-dark">
+    <a href="/" class="brand-lockup" aria-label="Zur Startseite">
+      <img src="/assets/icon-atemring.png" alt="">
     </a>
     <nav class="primary-nav">
       <div class="nav-links">
