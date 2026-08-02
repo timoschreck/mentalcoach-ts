@@ -433,8 +433,7 @@
             </a>
           </div>
         </div>
-        <form class="contact-form" id="contactForm" action="https://formspree.io/f/xdajvybv" method="POST">
-          <input type="hidden" name="_subject" value="Kontaktanfrage über mentalcoach-ts.de">
+        <form class="contact-form" id="contactForm">
           <div class="field">
             <label for="name">Dein Name</label>
             <input type="text" id="name" name="name" placeholder="Wie heißt Du?" required>
@@ -447,7 +446,7 @@
             <label for="message">Deine Nachricht</label>
             <textarea id="message" name="message" rows="4" placeholder="Wobei darf ich Dich unterstützen?" required></textarea>
           </div>
-          <p class="form-note">Deine Nachricht wird sicher über Formspree an Timo übermittelt.</p>
+          <p class="form-note">Öffnet Dein Mail-Programm mit vorausgefüllter Nachricht an Timo.</p>
           <button type="submit" class="submit-btn">Senden</button>
         </form>
       </div>
@@ -508,6 +507,18 @@
   document.getElementById('navClose').addEventListener('click', () => drawer.classList.remove('open'));
   drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => drawer.classList.remove('open')));
 
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+      const subject = encodeURIComponent('Kontaktanfrage über die Website');
+      const body = encodeURIComponent(`Name: ${name}\nMail: ${email}\n\n${message}`);
+      window.location.href = `mailto:timo@mentalcoach-ts.de?subject=${subject}&body=${body}`;
+    });
+  }
 </script>
 
 <script type="application/ld+json">
