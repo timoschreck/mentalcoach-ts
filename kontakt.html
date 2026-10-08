@@ -441,22 +441,24 @@
             </a>
           </div>
         </div>
-        <form class="contact-form" id="contactForm" action="https://formspree.io/f/xjgnqzlp" method="POST">
-          <input type="hidden" name="_subject" value="Kontaktanfrage über mentalcoach-ts.de">
+        <form class="contact-form" id="contactForm" action="contact.php" method="POST">
+          <div aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)"><label for="contactWebsite">Website</label><input id="contactWebsite" name="website" type="text" tabindex="-1" autocomplete="off"></div>
           <div class="field">
             <label for="name">Dein Name</label>
-            <input type="text" id="name" name="name" placeholder="Wie heißt Du?" required>
+            <input type="text" id="name" name="name" maxlength="120" autocomplete="name" placeholder="Wie heißt Du?" required>
           </div>
           <div class="field">
             <label for="email">Deine Mail-Adresse</label>
-            <input type="email" id="email" name="email" placeholder="Deine Mail-Adresse" required>
+            <input type="email" id="email" name="email" maxlength="254" autocomplete="email" placeholder="Deine Mail-Adresse" required>
           </div>
           <div class="field">
             <label for="message">Deine Nachricht</label>
-            <textarea id="message" name="message" rows="4" placeholder="Wobei darf ich Dich unterstützen?" required></textarea>
+            <textarea id="message" name="message" minlength="10" maxlength="5000" rows="4" placeholder="Wobei darf ich Dich unterstützen?" required></textarea>
           </div>
-          <p class="form-note">Deine Nachricht wird sicher über Formspree an Timo übermittelt.</p>
+          <p class="form-note">Deine Nachricht wird an Timo übermittelt. <a href="datenschutz.html">Datenschutzhinweise</a></p>
           <button type="submit" class="submit-btn">Senden</button>
+          <p class="form-note" role="status" aria-live="polite"></p>
+<noscript>Bitte aktiviere JavaScript oder schreibe an <a href="mailto:office@mentalcoach-ts.de">office@mentalcoach-ts.de</a>.</noscript>
         </form>
       </div>
     </div>
@@ -540,5 +542,6 @@
 }
 </script>
 
+<script type="module" src="assets/contact-form.mjs"></script>
 </body>
 </html>
