@@ -188,14 +188,14 @@ test('fixed sender, recipient, Reply-To, TLS and plain body with PHPMailer mock'
     [$service] = fixture($transport);
     $body = payload($service);
     $service->submit($body, TEST_IP, TEST_NOW);
-    expect($mail->mockSends === 1);
-    expect($mail->From === ContactService::SENDER && $mail->Sender === ContactService::SENDER);
-    expect($mail->getToAddresses() === [[ContactService::RECIPIENT, '']]);
-    expect($mail->getCcAddresses() === [] && $mail->getBccAddresses() === []);
-    expect(isset($mail->getReplyToAddresses()[$body['email']]));
-    expect($mail->getAttachments() === [] && $mail->ContentType === PHPMailer::CONTENT_TYPE_PLAINTEXT);
-    expect($mail->SMTPSecure === PHPMailer::ENCRYPTION_SMTPS && $mail->SMTPDebug === 0);
-    expect($mail->SMTPOptions['ssl']['verify_peer'] === true);
+    expect($mail->mockSends === 1, 'mock send count');
+    expect($mail->From === ContactService::SENDER && $mail->Sender === ContactService::SENDER, 'fixed sender');
+    expect($mail->getToAddresses() === [[ContactService::RECIPIENT, '']], 'fixed recipient');
+    expect($mail->getCcAddresses() === [] && $mail->getBccAddresses() === [], 'no secondary recipients');
+    expect($mail->getReplyToAddresses() === [[$body['email'], $body['name']]], 'visitor reply-to');
+    expect($mail->getAttachments() === [] && $mail->ContentType === PHPMailer::CONTENT_TYPE_PLAINTEXT, 'plain body no attachments');
+    expect($mail->SMTPSecure === PHPMailer::ENCRYPTION_SMTPS && $mail->SMTPDebug === 0, 'TLS and debug');
+    expect($mail->SMTPOptions['ssl']['verify_peer'] === true, 'peer verification');
 });
 
 test('four concurrent PHP workers share one atomic rate budget', function (): void {

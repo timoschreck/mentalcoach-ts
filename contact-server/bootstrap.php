@@ -33,7 +33,7 @@ try {
         throw new ContactError('unavailable', 503);
     }
     $statePath = realpath($config['state_directory'] ?? '');
-    if (!$statePath || is_link(__DIR__ . '/state') || $statePath !== $private . '/state') {
+    if (!$statePath || is_link(__DIR__ . '/state') || $statePath !== $private . DIRECTORY_SEPARATOR . 'state') {
         throw new ContactError('unavailable', 503);
     }
     if (DIRECTORY_SEPARATOR === '/') {
