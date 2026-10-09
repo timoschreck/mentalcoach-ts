@@ -48,6 +48,14 @@ def run(args):
                 target = new_root/source.relative_to(old_root)
                 target.parent.mkdir(parents=True,exist_ok=True)
                 shutil.copyfile(source,target)
+        # Bind only the disposable public copy to this fixture's absolute private path.
+        # Production has no environment variable or request-controlled test switch.
+        entry = public/'contact.php'
+        text = entry.read_text(encoding='utf-8')
+        binding = "$privateDirectory = '/usr/home/ct56gy/private/mentalcoach-contact';"
+        assert text.count(binding) == 1, 'production private path binding changed'
+        literal = str(private).replace('\\', '\\\\').replace("'", "\\'")
+        entry.write_text(text.replace(binding, "$privateDirectory = '"+literal+"';"), encoding='utf-8')
         (private/'SmtpTransport.php').write_text(MOCK,encoding='utf-8')
         state = private/'state'
         state.mkdir(mode=0o700)
