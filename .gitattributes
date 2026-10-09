@@ -1,0 +1,2 @@
+# Preserve upstream bytes for the pinned dependency hashes on Windows as well.
+contact-server/vendor/PHPMailer/** text eol=lf
