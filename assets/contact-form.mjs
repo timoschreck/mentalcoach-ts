@@ -1,8 +1,6 @@
 export function attachContactForm(form, fetchImpl = globalThis.fetch.bind(globalThis)) {
   const button = form.querySelector('button[type="submit"]');
   const status = form.querySelector('[role="status"]');
-  const fields = form.querySelector('[data-contact-fields]');
-  if (!button || !status || !fields) return;
   let busy = false;
   let completed = false;
   let token = null;
@@ -51,7 +49,7 @@ export function attachContactForm(form, fetchImpl = globalThis.fetch.bind(global
       } else if (['invalid', 'rate_limit'].includes(data.code)
         && [400, 403, 413, 415, 429].includes(response.status)) {
         say(data.code === 'rate_limit'
-          ? 'Zu viele Anfragen. Bitte versuche es später oder nutze timo@mentalcoach-ts.de.'
+          ? 'Zu viele Anfragen. Bitte versuche es später oder nutze office@mentalcoach-ts.de.'
           : 'Bitte prüfe Deine Eingaben. Ist das Formular länger geöffnet, lade es neu.');
       } else {
         completed = true;
@@ -61,16 +59,13 @@ export function attachContactForm(form, fetchImpl = globalThis.fetch.bind(global
       completed = postStarted;
       say(postStarted
         ? 'Der Versandstatus ist unklar. Bitte sende nicht erneut und kontaktiere Timo per Mail.'
-        : 'Das Formular ist momentan nicht verfügbar. Bitte nutze timo@mentalcoach-ts.de.');
+        : 'Das Formular ist momentan nicht verfügbar. Bitte nutze office@mentalcoach-ts.de.');
     } finally {
       busy = false;
       button.disabled = completed;
       button.textContent = completed ? 'Sendeversuch abgeschlossen' : 'Senden';
     }
   });
-  say('');
-  fields.disabled = false;
-  button.disabled = false;
 }
 
 if (typeof document !== 'undefined') {
