@@ -1,15 +1,23 @@
-# Mentalcoach V4: frontend backup for review
+# Mentalcoach frontend and local form-cache fix: review only
 
-Frozen local revision: mc-ga4-v4-e316edbf9d2a71e7. This draft backs up exactly31 approved frontend files. It does not authorize merging, deployment or analytics activation. Main baseline: 1b8add8d36136975e6af73bb7a51f28cac5939ef. Existing backend preparation remains separately in draft PR#3; no PHP/private backend files are included here.
+Current local candidate: **mc-v4-cachefix-3980c90aaa40bba2**, based on frozen V4 mc-ga4-v4-e316edbf9d2a71e7. This remains **NOT APPROVED FOR LIVE RELEASE**. Do not merge, deploy or activate tracking from this draft. The coordinating hosting task reported a form regression and subsequent production rollback; current live equality is not asserted here.
 
-Changes preserve the existing design: homepage links, keyboard dropdown/drawer behavior, focus and contrast improvements, public contact address, safe contact fallbacks, homepage navigation/FAQ/mobile contact actions, and a consent-gated GA4 adapter/loader. Previously preserved privacy text is retained; no legal approval is implied.
+## Exact follow-up change
 
-Tracking remains disabled: enabled=false, deploymentApproved=false and transport=null through closed verification gates. G-1KCTKLLL98 is the Mentalcoach-specific public measurement ID. Nothing is sent merely by importing the modules.
+Only kontakt.html changes in the public package: assets/contact-form.mjs becomes assets/contact-form.mjs?v=ac9845e62fdb. The version is bound to the unchanged module SHA256 ac9845e62fdbc10c57c4d59540fdb2d67b8a6a8f2ced680394e82dd878c2e170. Fixed HTML SHA256081b220f1d4732da5f4bbebdc4b4021a714c7c624acb85a298eb2f17e6b95d75. All other68 files in the full69-file local package remain byte-identical to V4. No backend/PHP/mail/DNS/analytics implementation or credentials changed.
 
-Prior local evidence: focused static, keyboard, desktop/mobile, JavaScript/no-JavaScript and mocked transport tests passed in their documented scopes. The later actual isolated SDK run sent one synthetic page_view and one contact_form_click with observed HTTP204 responses. Neutral page fields and consent/revocation behavior were observed in that short test; additional ERR_ABORTED warnings were retained. Dashboard processing was not confirmed by those HTTP responses; no anonymous-data or complete GA4 acceptance claim. No new emails/events or test suites are run for this backup.
+## Local fix verification completed
 
-Remaining boundaries: actual production frontend is managed separately; no live equality claim here. Legal/transparency review and production activation remain separate decisions. Contact frontend expects the existing contact.php route; this frontend-only PR neither installs nor modifies that backend. Existing main GitHub Pages source is unchanged. Rollback: leave this draft unmerged; prior main and local candidates remain intact.
+**4 Node regression tests PASS** and **9 actual Chrome/Playwright browser cases PASS** on the integrated local candidate: fresh desktop homepage-to-contact keyboard path; unchanged V4 after a cached legacy module reproduces the disabled form; versioned URL restores initialization in the same old cache; corrected normal reload; HTTP404, wrong MIME/nosniff and script-blocking CSP fallback; actual browser JavaScript disabled with visible keyboard-accessible mailto fallback; mobile390px keyboard path and layout. The synthetic accepted flow used an in-memory mock only, not an HTTP or mail submission.
 
-## Frozen backup, not approved for live release
+The real browser cache was retained. No second bare-module server GET occurred when the old cache was reused; the versioned URL fetched the current module. Fixture headers are controlled and are not evidence of historical production headers. The compatibility failure is locally reproduced; it is **not proven to be the sole historical production cause**.
 
-The coordinating hosting task reports a contact-form regression followed by a production rollback. V4 is not approved for live release. The focused form regression and complete rollback verification remain release gates; no current live equality is asserted here. A separate local cache follow-up fix is outside this frozen V4 revision and is not included. Do not merge or deploy this draft.
+Nine cases completed across three retained test runs: test-helper fieldset-state and noscript-text assertions were corrected; already-passed cases were retained rather than repeated. Earlier failed evidence remains local. The public site code was not changed for those assertion corrections. Existing historical tests are distinguished from these newly executed fix tests.
+
+Package integrity:69 files, only kontakt.html changed,1,379 local references checked with no missing targets. Minimal raw-byte patch apply/roundtrip PASS. Original V4 and hand-off source files remained unchanged. Zero real HTTP POSTs, backend requests, external requests, emails or analytics events across the fix tests; no PHP started. Test browsers and loopback servers closed. No new tests/events run merely to update this draft.
+
+## Remaining release boundaries
+
+The local form/cache regression check is now completed in the stated scope. Live versioned-module HTTPS/MIME/hash/redirect acceptance, fresh target drift/backup binding and a complete verified rollback path remain separate release gates. A future separately authorized release must provide the module first, verify its versioned URL, then switch HTML and check initialization without a real message. No production permission is implied by this local fix or GitHub backup.
+
+Tracking remains enabled=false/deploymentApproved=false and transport=null through closed gates. G-1KCTKLLL98 is a public Mentalcoach-specific ID, not an activation. Prior isolated SDK HTTP204 responses were not confirmed dashboard processing. Legal/transparency and real analytics activation remain separate decisions. The frontend expects the existing contact.php route; backend preparation remains separately in draft PR#3 and is not installed/modified by this frontend draft. No new mail-delivery evidence is claimed.
