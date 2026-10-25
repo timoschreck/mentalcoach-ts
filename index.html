@@ -310,6 +310,11 @@
   .footer-col a:hover{color:var(--cream);}
   .footer-bottom{display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; padding-top:22px; font-size:12.5px; color:rgba(250,247,239,.4);}
 </style>
+<link rel="stylesheet" href="assets/frontend-accessibility.css">
+<link rel="stylesheet" href="assets/homepage-modern.css">
+<link rel="preload" as="image" href="assets/hero-startseite.webp" fetchpriority="high">
+<script type="module" src="assets/homepage-enhancements.mjs"></script>
+<script defer src="assets/frontend-navigation.js"></script>
 </head>
 <body>
 
@@ -332,22 +337,24 @@
 <header id="siteHeader">
   <div class="wrap">
     <a href="/" class="brand-lockup" aria-label="Zur Startseite">
-      <img src="/assets/icon-atemring.png" alt="">
+      <img src="/assets/icon-atemring.png" alt="" width="68" height="68">
     </a>
     <nav class="primary-nav">
       <div class="nav-links">
         <div class="nav-item"><a href="#top">Startseite</a></div>
-        <div class="nav-item">
+        <div class="nav-item has-dropdown">
           <a href="sport-mentalcoaching.html">Sport-Mentalcoaching</a>
-          <div class="dropdown">
+          <button type="button" class="dropdown-toggle" aria-label="Untermenü Sport-Mentalcoaching" aria-expanded="false" aria-controls="nav-submenu-1"><span aria-hidden="true">▾</span></button>
+          <div class="dropdown" id="nav-submenu-1" hidden>
             <a href="sport-mentalcoaching/einzelsportler.html">Einzelsportler</a>
             <a href="sport-mentalcoaching/mannschaftssport.html">Mannschaftssport</a>
             <a href="sport-mentalcoaching/trainercoaching.html">Trainercoaching</a>
           </div>
         </div>
-        <div class="nav-item">
+        <div class="nav-item has-dropdown">
           <a href="life-coaching.html">Life Coaching</a>
-          <div class="dropdown">
+          <button type="button" class="dropdown-toggle" aria-label="Untermenü Life Coaching" aria-expanded="false" aria-controls="nav-submenu-2"><span aria-hidden="true">▾</span></button>
+          <div class="dropdown" id="nav-submenu-2" hidden>
             <a href="life-coaching/familie.html">Familie</a>
             <a href="life-coaching/kinder-jugendliche.html">Kinder & Jugendliche</a>
             <a href="life-coaching/job.html">Job & Berufung</a>
@@ -362,11 +369,11 @@
         <a href="kontakt.html" class="nav-cta">Erstgespräch</a>
       </div>
     </nav>
-    <button class="nav-toggle" id="navToggle" aria-label="Menü öffnen">Menü</button>
+    <button class="nav-toggle" id="navToggle" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileDrawer">Menü</button>
   </div>
 </header>
 
-<div class="mobile-drawer" id="mobileDrawer">
+<div class="mobile-drawer" id="mobileDrawer" role="dialog" aria-modal="true" aria-label="Hauptnavigation" aria-hidden="true" hidden inert>
   <button class="close-btn" id="navClose">Schließen ✕</button>
   <div class="m-group"><a href="#top">Startseite</a></div>
   <div class="m-group">
@@ -402,13 +409,17 @@
       <h1>Mentalcoaching in Mannheim für mentale Stärke, Klarheit und persönliche Veränderung.</h1>
       <p class="lede" style="margin-bottom:36px;">Ich begleite Sportlerinnen, Sportler, Trainer, Berufstätige und Privatpersonen dabei, mentale Muster besser zu verstehen, Ressourcen zu aktivieren und konkrete nächste Schritte zu entwickeln.</p>
       <div class="cta-row">
-        <a href="kontakt.html" class="btn-primary">Kostenloses Erstgespräch vereinbaren</a>
-        <a href="kontakt.html" class="btn-ghost">Jetzt Kontakt aufnehmen →</a>
+        <a href="kontakt.html" class="btn-primary" data-contact-action="form" data-contact-placement="hero">Kostenloses Erstgespräch anfragen</a>
+        <a href="kontakt.html" class="btn-ghost" data-contact-action="form" data-contact-placement="hero">Jetzt Kontakt aufnehmen →</a>
       </div>
     </div>
   </section>
 
   <div class="ring-seam"><div class="badge"><svg aria-hidden="true" viewBox="0 0 60 60" fill="none"><circle class="atemring" cx="30" cy="30" r="5" fill="#E8B923"/><circle cx="30" cy="30" r="13" stroke="#E8B923" stroke-width="1.4"/><circle cx="30" cy="30" r="21" stroke="#FFE599" stroke-width="1.2" opacity=".6"/></svg></div></div>
+
+  <nav class="page-shortcuts" aria-label="Auf dieser Seite">
+    <div class="wrap"><span>Dein Einstieg</span><a href="#wege">Coaching-Angebote</a><a href="#ablauf">Ablauf</a><a href="#fragen">Häufige Fragen</a><a href="#kontakt">Kontakt</a></div>
+  </nav>
 
   <!-- INTRO -->
   <section class="intro">
@@ -441,7 +452,7 @@
           <div class="body">
             <h3>Mentalcoach & Mentaltrainer</h3>
             <p>Ich begleite Dich zu mentaler Stärke, Klarheit, Fokus und persönlicher Veränderung.</p>
-            <a href="mentalcoach-mannheim.html" class="more">Erstgespräch anfragen →</a>
+            <a href="kontakt.html" class="more">Erstgespräch anfragen →</a>
           </div>
         </div>
         <div class="sp-card">
@@ -632,31 +643,32 @@
           <p>Gemeinsamer Blick auf Fortschritte und nächste sinnvolle Schritte.</p>
         </div>
       </div>
+      <p class="process-contact"><a href="kontakt.html" class="btn-primary" data-contact-action="form" data-contact-placement="process">Erstgespräch anfragen</a></p>
     </div>
   </section>
 
   <div class="ring-seam"><div class="badge"><svg aria-hidden="true" viewBox="0 0 60 60" fill="none"><circle class="atemring" cx="30" cy="30" r="5" fill="#E8B923"/><circle cx="30" cy="30" r="13" stroke="#E8B923" stroke-width="1.4"/><circle cx="30" cy="30" r="21" stroke="#FFE599" stroke-width="1.2" opacity=".6"/></svg></div></div>
 
   <!-- FAQ -->
-  <section class="faq">
+  <section class="faq" id="fragen" aria-labelledby="fragen-title">
     <div class="wrap">
       <div class="section-head">
         <span class="eyebrow sage">Häufige Fragen</span>
-        <h2>Gut zu wissen</h2>
+        <h2 id="fragen-title">Gut zu wissen</h2>
       </div>
       <div class="faq-list">
-        <div class="faq-item">
-          <h4><svg aria-hidden="true" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="6" fill="#7C9A92"/><circle cx="30" cy="30" r="15" stroke="#7C9A92" stroke-width="2"/></svg>Ist Mentalcoaching eine Therapie?</h4>
+        <details class="faq-item"><summary><h3>Ist Mentalcoaching eine Therapie?</h3></summary>
           <p>Nein. Mentalcoaching ist keine medizinische oder psychotherapeutische Behandlung und ersetzt diese nicht. Wenn gesundheitliche Beschwerden, akute Krisen oder psychische Erkrankungen im Vordergrund stehen, ist ärztliche oder therapeutische Unterstützung der richtige Rahmen; Coaching kann ergänzend zur Orientierung beitragen.</p>
-        </div>
-        <div class="faq-item">
-          <h4><svg aria-hidden="true" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="6" fill="#7C9A92"/><circle cx="30" cy="30" r="15" stroke="#7C9A92" stroke-width="2"/></svg>Wo findet das Coaching statt?</h4>
+        </details>
+        <details class="faq-item"><summary><h3>Wo findet das Coaching statt?</h3></summary>
           <p>Nach Absprache in Mannheim, online oder in einem passenden Rahmen. Im kostenlosen Erstgespräch klären wir, ob ein persönlicher Termin, ein Online-Gespräch oder ein anderer Rahmen am besten passt.</p>
-        </div>
-        <div class="faq-item">
-          <h4><svg aria-hidden="true" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="6" fill="#7C9A92"/><circle cx="30" cy="30" r="15" stroke="#7C9A92" stroke-width="2"/></svg>Wie schnell merke ich eine Veränderung?</h4>
-          <p>Viele Menschen erleben schon nach den ersten Terminen mehr Ordnung im Kopf. Nachhaltige Veränderung entsteht durch Anwendung, Wiederholung und ehrliche Reflexion.</p>
-        </div>
+        </details>
+        <details class="faq-item"><summary><h3>Wie schnell merke ich eine Veränderung?</h3></summary>
+          <p>Ein bestimmter Erfolg oder Zeitpunkt lässt sich nicht garantieren. Im Erstgespräch klären wir Dein Anliegen; im Coaching betrachten wir gemeinsam Deine nächsten Schritte.</p>
+        </details>
+        <details class="faq-item"><summary><h3>Wie frage ich ein Erstgespräch an?</h3></summary>
+          <p>Nutze das <a href="kontakt.html" data-contact-action="form" data-contact-placement="faq">Kontaktformular</a> oder schreibe an <a href="mailto:timo@mentalcoach-ts.de" data-contact-action="email" data-contact-placement="faq">timo@mentalcoach-ts.de</a>. Deine Anfrage ist noch keine Terminbestätigung.</p>
+        </details>
       </div>
     </div>
   </section>
@@ -681,48 +693,36 @@
           <p>Villinger Straße 20</p>
           <p>68239 Mannheim</p>
           <span class="label">Mobil</span>
-          <p><a href="tel:+491752287170">+49 175 - 228 71 70</a></p>
+          <p><a href="tel:+491752287170" data-contact-action="phone" data-contact-placement="contact">+49 175 - 228 71 70</a></p>
           <span class="label">Mail</span>
-          <p><a href="mailto:timo@mentalcoach-ts.de">timo@mentalcoach-ts.de</a></p>
+          <p><a href="mailto:timo@mentalcoach-ts.de" data-contact-action="email" data-contact-placement="contact">timo@mentalcoach-ts.de</a></p>
           <div class="social-row">
             <a href="https://www.instagram.com/mentalcoach_timo/" target="_blank" rel="noopener" aria-label="Instagram">
               <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg>
             </a>
-            <a href="#" aria-label="Facebook">
-              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M14 9h3V6h-3c-2 0-3.5 1.5-3.5 3.5V12H8v3h2.5v6h3v-6H16l1-3h-3.5v-2c0-.5.5-1 1-1z"/></svg>
-            </a>
-            <a href="#" aria-label="YouTube">
-              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="6" width="18" height="12" rx="3"/><path d="M10 9.5l5 2.5-5 2.5v-5z" fill="currentColor" stroke="none"/></svg>
-            </a>
           </div>
         </div>
-        <form class="contact-form" id="contactForm">
-          <div class="field">
-            <label for="name">Dein Name</label>
-            <input type="text" id="name" name="name" placeholder="Wie heißt Du?" required>
-          </div>
-          <div class="field">
-            <label for="email">Deine Mail-Adresse</label>
-            <input type="email" id="email" name="email" placeholder="Deine Mail-Adresse" required>
-          </div>
-          <div class="field">
-            <label for="message">Deine Nachricht</label>
-            <textarea id="message" name="message" rows="4" placeholder="Wobei darf ich Dich unterstützen?" required></textarea>
-          </div>
-          <p class="form-note">Öffnet Dein Mail-Programm mit vorausgefüllter Nachricht an Timo. (Für ein echtes Formular-Backend: siehe Hinweis unten im Chat.)</p>
-          <button type="submit" class="submit-btn">Senden</button>
-        </form>
+        <div class="contact-form" aria-labelledby="kontakt-link-title">
+          <h3 id="kontakt-link-title" style="color:var(--cream); font-size:26px; margin-bottom:18px;">Lass uns ins Gespräch kommen.</h3>
+          <p style="color:rgba(250,247,239,.85); margin:0 0 24px;">Erzähle mir, was Dich bewegt. Auf der Kontaktseite findest Du das Formular für Deine Nachricht.</p>
+          <a href="kontakt.html" class="btn-primary" data-contact-action="form" data-contact-placement="contact" style="display:block; text-align:center;">Zum Kontaktformular</a>
+        </div>
       </div>
     </div>
   </section>
 
+  <nav class="mobile-contact-actions" aria-label="Schneller Kontakt">
+    <a href="kontakt.html" data-contact-action="form" data-contact-placement="mobile">Erstgespräch</a>
+    <a href="mailto:timo@mentalcoach-ts.de" data-contact-action="email" data-contact-placement="mobile">E-Mail</a>
+    <a href="tel:+491752287170" data-contact-action="phone" data-contact-placement="mobile">Anrufen</a>
+  </nav>
 </main>
 
 <footer>
   <div class="wrap">
     <div class="footer-top">
       <div class="footer-brand">
-        <a href="#top"><img src="assets/logo-hell.png" alt="Timo Schreck – Mentalcoaching Mannheim"></a>
+        <a href="#top"><img src="assets/logo-hell.png" alt="Timo Schreck – Mentalcoaching Mannheim" width="1600" height="516" loading="lazy" decoding="async"></a>
         <p>Mentalcoaching für Sport, Beruf und Alltag in Mannheim und der Rhein-Neckar-Region.</p>
       </div>
       <div class="footer-cols">
@@ -756,6 +756,7 @@
       </div>
     </div>
     <div class="footer-bottom">
+      <button type="button" class="measurement-settings" data-measurement-settings hidden>Datenschutzeinstellungen</button>
       <span>© 2026 Timo Schreck · Mentalcoach Mannheim</span>
       <span>Mannheim · Rhein-Neckar-Region</span>
     </div>
@@ -766,20 +767,9 @@
   const header = document.getElementById('siteHeader');
   window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 40));
 
-  const drawer = document.getElementById('mobileDrawer');
-  document.getElementById('navToggle').addEventListener('click', () => drawer.classList.add('open'));
-  document.getElementById('navClose').addEventListener('click', () => drawer.classList.remove('open'));
-  drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => drawer.classList.remove('open')));
 
-  document.getElementById('contactForm').addEventListener('submit', function(e){
-    e.preventDefault();
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
-    const subject = encodeURIComponent('Kontaktanfrage über die Website');
-    const body = encodeURIComponent(`Name: ${name}\nMail: ${email}\n\n${message}`);
-    window.location.href = `mailto:timo@mentalcoach-ts.de?subject=${subject}&body=${body}`;
-  });
+
+
 </script>
 
 <script type="application/ld+json">
@@ -799,8 +789,15 @@
     "addressRegion": "Baden-Württemberg",
     "addressCountry": "DE"
   },
-  "areaServed": ["Mannheim", "Rhein-Neckar-Region"],
-  "sameAs": ["https://www.instagram.com/mentalcoach_timo/"]
+  "areaServed": [
+    "Mannheim",
+    "Rhein-Neckar-Region"
+  ],
+  "sameAs": [
+    "https://www.instagram.com/mentalcoach_timo/"
+  ],
+  "@id": "https://mentalcoach-ts.de/#mentalcoach",
+  "email": "timo@mentalcoach-ts.de"
 }
 </script>
 

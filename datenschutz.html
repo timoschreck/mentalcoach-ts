@@ -310,7 +310,14 @@
   .footer-col a{display:block; font-size:13.5px; padding:5px 0; color:rgba(250,247,239,.62);}
   .footer-col a:hover{color:var(--cream);}
   .footer-bottom{display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; padding-top:22px; font-size:12.5px; color:rgba(250,247,239,.4);}
+
+  /* Privacy page starts on a light background. */
+  @media (max-width:980px){
+    header:not(.scrolled) .nav-toggle{color:var(--ink); border-color:rgba(32,36,44,.5);}
+  }
 </style>
+<link rel="stylesheet" href="assets/frontend-accessibility.css">
+<script defer src="assets/frontend-navigation.js"></script>
 </head>
 <body>
 
@@ -337,18 +344,20 @@
     </a>
     <nav class="primary-nav">
       <div class="nav-links">
-        <div class="nav-item"><a href="#top">Startseite</a></div>
-        <div class="nav-item">
+        <div class="nav-item"><a href="index.html">Startseite</a></div>
+        <div class="nav-item has-dropdown">
           <a href="sport-mentalcoaching.html">Sport-Mentalcoaching</a>
-          <div class="dropdown">
+          <button type="button" class="dropdown-toggle" aria-label="Untermenü Sport-Mentalcoaching" aria-expanded="false" aria-controls="nav-submenu-1"><span aria-hidden="true">▾</span></button>
+          <div class="dropdown" id="nav-submenu-1" hidden>
             <a href="sport-mentalcoaching/einzelsportler.html">Einzelsportler</a>
             <a href="sport-mentalcoaching/mannschaftssport.html">Mannschaftssport</a>
             <a href="sport-mentalcoaching/trainercoaching.html">Trainercoaching</a>
           </div>
         </div>
-        <div class="nav-item">
+        <div class="nav-item has-dropdown">
           <a href="life-coaching.html">Life Coaching</a>
-          <div class="dropdown">
+          <button type="button" class="dropdown-toggle" aria-label="Untermenü Life Coaching" aria-expanded="false" aria-controls="nav-submenu-2"><span aria-hidden="true">▾</span></button>
+          <div class="dropdown" id="nav-submenu-2" hidden>
             <a href="life-coaching/familie.html">Familie</a>
             <a href="life-coaching/kinder-jugendliche.html">Kinder & Jugendliche</a>
             <a href="life-coaching/job.html">Job & Berufung</a>
@@ -363,13 +372,13 @@
         <a href="kontakt.html" class="nav-cta">Erstgespräch</a>
       </div>
     </nav>
-    <button class="nav-toggle" id="navToggle" aria-label="Menü öffnen">Menü</button>
+    <button class="nav-toggle" id="navToggle" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileDrawer">Menü</button>
   </div>
 </header>
 
-<div class="mobile-drawer" id="mobileDrawer">
+<div class="mobile-drawer" id="mobileDrawer" role="dialog" aria-modal="true" aria-label="Hauptnavigation" aria-hidden="true" hidden inert>
   <button class="close-btn" id="navClose">Schließen ✕</button>
-  <div class="m-group"><a href="#top">Startseite</a></div>
+  <div class="m-group"><a href="index.html">Startseite</a></div>
   <div class="m-group">
     <a href="sport-mentalcoaching.html">Sport-Mentalcoaching</a>
     <div class="m-sub">
@@ -407,16 +416,22 @@
       <div style="font-size:15.5px; line-height:1.85; color:var(--ink); opacity:.85;">
         <h3 style="font-size:19px; margin:32px 0 10px;">1. Verantwortlicher</h3>
         <p>Mentalcoach Timo Schreck, Villinger Straße 20, 68239 Mannheim, Deutschland<br>
-        Telefon: +49 175 2287170 · E-Mail: <a href="mailto:office@mentalcoach-ts.de" style="color:var(--sage); border-bottom:1px solid var(--sage);">office@mentalcoach-ts.de</a></p>
+        Telefon: +49 175 2287170 · E-Mail: <a href="mailto:timo@mentalcoach-ts.de" style="color:var(--sage); border-bottom:1px solid var(--sage);">timo@mentalcoach-ts.de</a></p>
 
         <h3 style="font-size:19px; margin:32px 0 10px;">2. Erhebung und Verarbeitung personenbezogener Daten</h3>
-        <p>Wir erheben aufgrund unseres berechtigten Interesses im Sinne des Art. 6 Abs. 1 lit. f DSGVO Daten über Zugriffe auf die Website und speichern diese als „Server-Logfiles" auf dem Server ab. Folgende Daten werden protokolliert: besuchte Website, Uhrzeit des Zugriffs, gesendete Datenmenge in Byte, Quelle/Verweis, verwendeter Browser und Betriebssystem, verwendete IP-Adresse. Die Server-Logfiles werden maximal 7 Tage gespeichert und anschließend gelöscht, sofern keine längere Aufbewahrung aufgrund konkreter Vorfälle notwendig ist.</p>
+<p>Für Website und E-Mail-Postfach nutze ich die Hetzner Online GmbH, Industriestraße 25, 91710 Gunzenhausen. Bei Website-Aufrufen werden technische Zugriffsdaten verarbeitet, darunter besuchte Seite, Zeitpunkt, Datenmenge, Referrer, Browserangaben und IP-bezogene Angaben. Die Verarbeitung dient der Bereitstellung und Absicherung der Website auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO.</p>
+<p>Für gespeicherte Weblogs von mentalcoach-ts.de ist eine automatische Löschregel für Einträge beziehungsweise Dateien eingerichtet, die älter als eine Woche sind. Die Entfernung erfolgt durch die Wartung des Hostinganbieters. Für das Webhosting sind tägliche Sicherungen mit einer Vorhaltung von bis zu 14 Tagen vorgesehen. Sie können Website-Dateien, E-Mails und Logs enthalten. Löschungen im laufenden System entfernen nicht zugleich alle noch vorgehaltenen Sicherungskopien.</p>
+
 
         <h3 style="font-size:19px; margin:32px 0 10px;">3. Umgang mit Kontaktdaten</h3>
-        <p>Nimmst Du über die angebotenen Kontaktmöglichkeiten (z. B. Kontaktformular, E-Mail) Verbindung mit uns auf, werden Deine Angaben gespeichert, damit wir auf diese zur Bearbeitung und Beantwortung Deiner Anfrage zurückgreifen können. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO. Ohne Deine Einwilligung werden diese Daten nicht an Dritte weitergegeben. Die Daten werden gelöscht, sobald sie für den Zweck ihrer Verarbeitung nicht mehr erforderlich sind, es sei denn, gesetzliche Aufbewahrungsfristen stehen dem entgegen.</p>
+<p>Wenn Du das Kontaktformular nutzt, verarbeite ich Deinen Namen, Deine E-Mail-Adresse und Deine Nachricht zur Bearbeitung und Beantwortung Deiner Anfrage. Die Übermittlung erfolgt über diese Website und den Mailserver bei Hetzner an office@mentalcoach-ts.de. Deine E-Mail-Adresse dient als Antwortadresse. Das Formular versendet keine automatische Antwort. Bitte übermittle zunächst keine unnötigen sensiblen Angaben.</p>
+<p>Zum Schutz vor Missbrauch verarbeitet die Formularanwendung die beobachtete IP-Adresse und speichert daraus abgeleitete Kennungen sowie Zeit-, Zähler- und Versandstatusangaben. Dieser Schutzspeicher enthält keine Nachrichtentexte, Namen oder E-Mail-Adressen. Formulartokens gelten 15 Minuten; Schutzfenster laufen höchstens eine Stunde. Abgelaufene Einträge werden beim nächsten Zugriff entfernt.</p>
+<p>Reine Kontaktanfragen, aus denen kein Auftrag entsteht, lösche ich drei Monate nach Abschluss der Bearbeitung, einschließlich vorhandener Arbeitskopien. Offene Anliegen werden zunächst zu Ende bearbeitet. Unterlagen aus Vertragsverhältnissen oder mit tatsächlich anwendbaren Aufbewahrungsgründen werden getrennt behandelt. Spam und Nachrichten im Papierkorb werden durch die eingerichteten Mail-Wartungsregeln nach 14 Tagen gelöscht. Die Dreimonatsregel ist keine allgemeine automatische Altersregel für den gesamten Posteingang.</p>
+
 
         <h3 style="font-size:19px; margin:32px 0 10px;">4. Cookies</h3>
-        <p>Diese Website verwendet Cookies zur pseudonymisierten Reichweitenmessung.</p>
+<p>Diese Website verwendet keine Analyse- oder Tracking-Cookies. Die eigene Kontaktformularroute benötigt keine Cookies für den Formularversand. Bei verlinkten externen Diensten gelten deren Datenschutzhinweise.</p>
+
 
         <h3 style="font-size:19px; margin:32px 0 10px;">5. Rechte der Nutzer</h3>
         <p>Auskunft, Berichtigung, Verarbeitungseinschränkung, Löschung, ggf. Datenübertragbarkeit, Beschwerderecht bei der zuständigen Aufsichtsbehörde.</p>
@@ -443,7 +458,7 @@
   <div class="wrap">
     <div class="footer-top">
       <div class="footer-brand">
-        <a href="#top"><img src="assets/logo-hell.png" alt="Timo Schreck – Mentalcoaching Mannheim"></a>
+        <a href="index.html"><img src="assets/logo-hell.png" alt="Timo Schreck – Mentalcoaching Mannheim"></a>
         <p>Mentalcoaching für Sport, Beruf und Alltag in Mannheim und der Rhein-Neckar-Region.</p>
       </div>
       <div class="footer-cols">
@@ -487,10 +502,7 @@
   const header = document.getElementById('siteHeader');
   window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 40));
 
-  const drawer = document.getElementById('mobileDrawer');
-  document.getElementById('navToggle').addEventListener('click', () => drawer.classList.add('open'));
-  document.getElementById('navClose').addEventListener('click', () => drawer.classList.remove('open'));
-  drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => drawer.classList.remove('open')));
+
 
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
