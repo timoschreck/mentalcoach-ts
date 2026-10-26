@@ -1,3 +1,25 @@
+# Aktueller Prüfstand: bestätigte Live-Startseitenkorrektur
+
+Stand 25.10.2026. Dieser Abschnitt ersetzt die überholten Release-Gates der unten ausdrücklich historischen Vorabprüfung.
+
+Die genehmigte V4-Veröffentlichung ist erfolgt. Danach wurde ausschließlich die Startseite aus dem lokal geprüften Kandidaten **mc-mobile-render-jpeg-6d8d83d27fde3079** korrigiert: vier vorhandene Motive als JPEG unter neuen Pfaden, zwei responsive Stylesheets und index.html. Keine anderen HTML-Änderungen dieses lokalen Gesamtkandidaten übernehmen. Die sechs Assets wurden zuerst auf öffentliche Rohbytes, Größe, MIME und TLS geprüft; danach Indexwechsel. Öffentlicher Index: 54668 Bytes, SHA256 0634557b37a2244a96ecd74bdc9a7e5641976e7453550e39f39ad923f793a1e5. Nutzer bestätigte auf dem betroffenen Handy: „Ja, läuft wieder. Danke“. Keine Ausweitung dieser Bestätigung auf Unterseiten.
+
+Fünf neue produktive Windows-Chrome-Prüfungen bei 320/360/390/412 und 1440px bestanden: vollständige mobile Bildverhältnisse, kein horizontaler Überlauf, Sportteaser/Karten, mobile Menü-Tastatur/Escape/Fokusrückgabe, Desktop-Dropdown und Kontaktinitialisierung mit genau einem Handler. Screenshots visuell geprüft. Echte Formularübertragung und externe Requests blockiert, tatsächlich 0 Submit-/Backend-/externe Versuche in diesen Prüfungen. Mobile ist Desktop-Chrome-Emulation; der zusätzliche Nutzerbeleg ist kein instrumentierter Android-/Cachetest. Farbstreifenursache nicht eindeutig bewiesen. JPEGs zusammen 964440 Bytes, können auch versteckt auf Desktop zusätzlich geladen werden.
+
+21 übrige HTML-Seiten und vier Originalbilder nach dem Wechsel bytegenau unverändert geprüft. Kontaktseite, beide Modulversionen und measurement-config unverändert. Tracking enabled=false und deploymentApproved=false. Keine Backend/PHP/Mail/DNS-Änderung. Separat produktive HTTPS-Konfiguration bleibt auf dem Server, wird in diesem genehmigten Frontend-Commit nicht veröffentlicht.
+
+Rückweg: unmittelbar vorher gesicherter V4-Index, 52848 Bytes, SHA256 44b530904109d28874f7da54a5a334eccd89a34bf028de55952433547cac2923. Nur diesen Index bei Regression wieder einsetzen; neue Assets für gecachte Sitzungen, beide Formularmodule und HTTPS bewahren. Kein pauschaler Vor-V4-Rollback. Regulärer WebFTP-Austausch ist nicht atomar; mögliche kurze Seitenlücke wurde genehmigt. Keine Regression beobachtet, kein Rückweg ausgeführt.
+
+Vor dieser Branchsicherung frisch geprüft: erwarteter Parent d022e294de84e5845ee836960d5423406f8101bb, PR4 Draft/unmerged, Main 1b8add8d36136975e6af73bb7a51f28cac5939ef unverändert. Keine eigenen Workflowdateien oder Repository-Webhooks sichtbar. Installierte Apps: ChatGPT Codex Connector, Linear Code, Slack; kein Deploymentanbieter sichtbar. GitHub Pages veröffentlicht aus main / (root), deshalb weiterhin **kein Merge**; Merge könnte einen Pages-Build/Deployment auslösen. Kein Workflow gestartet und keine Kostenfreiheit behauptet. Vorher 0 Reviews/Statuschecks/Check-Runs/Head-Workflow-Runs: keine CI-Abnahme.
+
+Dieser Commit sichert ausschließlich die sieben bereits bestätigten öffentlichen Frontendpfade plus diesen Prüfbericht im bestehenden Draft-PR. Keine neue Liveänderung, keine Trackingaktivierung, keine .htaccess-Datei, Backups, Fixtures, Rohlogs, Zugangsdaten oder Kundendaten. Ein separat genehmigter einmaliger synthetischer Mailtest ist hier nicht vorweg als erfolgreich dargestellt; Versand und tatsächlicher Eingang erfordern getrennte Belege.
+
+---
+
+# Historische Vorabprüfung vor Veröffentlichung
+
+Der folgende ursprüngliche Bericht dokumentiert damalige Tests und damalige offene Gates; seine Aussagen „not live approved“ oder „not executed in production“ beschreiben den damaligen Stand und werden durch den aktuellen Abschnitt oben berichtigt.
+
 # Mentalcoach frontend: version-separated contact module, review only
 
 Current local candidate: **mc-form-split-95ad245f2de82ca5**, based on mc-v4-cachefix-3980c90aaa40bba2 and frozen V4 mc-ga4-v4-e316edbf9d2a71e7. **NOT APPROVED FOR LIVE RELEASE. Do not merge, deploy or activate tracking.** The earlier production form regression was rolled back. These local checks do not prove its sole historical cause or current live equality.
@@ -41,3 +63,4 @@ Earlier PR4/V4 HTML using the old bare/query binding can remain disabled until i
 Open before release: current raw server-backup content hashes, full release/rollback manifest retaining both modules, actual new production URL/header/MIME/hash checks after separately approved staging, productive switch acceptance and explicit release permission. No release is authorized by this draft.
 
 Tracking remains enabled=false/deploymentApproved=false with transport closed. The public project measurement ID is not activation; prior isolated SDK HTTP204 responses did not establish dashboard processing. Real analytics activation and legal/transparency decisions remain separate. Existing contact.php/backend and technical mail route are not changed or installed by this frontend draft; backend draft PR3 remains separate. No new mail-delivery proof is claimed. Main and production remain untouched by this GitHub backup step.
+
