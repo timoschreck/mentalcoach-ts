@@ -1,3 +1,17 @@
+# Neuer lokaler Kontaktfeedback-Stand, 26.10.2026
+
+Revision mc-contact-feedback-41572a4d5b1d8e15, nur lokal geprüft. Das folgende Zwei-Dateien-Frontenddelta ist noch nicht veröffentlicht: kontakt.html mit Warnhinweis vor Gesundheits-/vertraulichen Coachingdaten und Bindung an assets/contact-form.99d3ab941aec.mjs. Neues Modul zeigt Nachricht versendet ausschließlich nach erfolgreicher HTTP-Antwort mit ok:true/code:accepted. Status bleibt zum Versand angenommen, kein Zustellnachweis. Fehler/Timeouts, Wiederholungssperre und No-JS-Sperre bleiben erhalten. Alte Modulversionen bleiben bestehen. Kein CSS-/Design-, Backend-, Datenschutztext- oder Trackingdelta.
+
+12 lokale echte Chrome-Browserfälle mit synthetischem Mocktransport bestanden, Windows Chrome156.0.8078.47, Desktop1440/mobile390-Emulation und Tastatur. Erfolg, Serverfehler, ungültige/limitierte/widersprüchliche Antwort, simulierte Token-/POST-Timeouts, ungültiges JSON, Modulfehler, JS aus und Doppelereignisse geprüft. 0 reale Backend-/SMTP-/externe Requests. Modulsyntax und Zwei-Dateien-Patch mit exaktem Roundtrip bestanden. Fehlgeschlagener erster Tastatur-Fixturelauf lokal erhalten und durch korrigierten vollständigen Lauf aufgelöst. Keine Tests unveränderter Gesamtseite wiederholt.
+
+Eine automatische Empfangsbestätigung ist NICHT aktiviert. Separater lokaler Policy-Prototyp mit 13 Node-Mocktests prüft neutrale Inhalte, getrennte Hauptannahme, Empfänger-/IP-/Gesamtbudgets und Idempotenz. Keine PHP-/SMTP-/persistente Workerabnahme; Prototyp und Datenschutzentwurf werden nicht in diesen PR-Upload aufgenommen.
+
+Letzter bestätigter PR4-Head nach manuellem Startseitencommit: 74b31845a7237b7bafc153d3402ffef868a5f986. Vor jedem menschlichen Upload frisch prüfen; bei Drift stoppen. Genau zwei Frontenddateien plus dieser bestehende Prüfbericht, keine .htaccess oder Backups. Kein Merge; Pages aus main/root kann bei Mainänderung veröffentlichen. Livewechsel separat durch Nutzerentscheidung, neues Modul vor Kontakt-HTML, Rückweg nur Kontakt-HTML bei Erhalt aller Module.
+
+---
+
+# Vorheriger Startseiten-/V4-Prüfstand (historisch, zeitlich getrennt)
+
 # Aktueller Prüfstand: bestätigte Live-Startseitenkorrektur
 
 Stand 25.10.2026. Dieser Abschnitt ersetzt die überholten Release-Gates der unten ausdrücklich historischen Vorabprüfung.
