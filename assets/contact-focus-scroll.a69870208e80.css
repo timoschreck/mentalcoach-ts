@@ -1,0 +1,4 @@
+/* Contact page only: reveal keyboard/validation targets below the fixed header without a focus-hiding scroll animation. */
+@media (max-width:980px) {
+  html { scroll-padding-block:120px; scroll-behavior:auto; }
+}

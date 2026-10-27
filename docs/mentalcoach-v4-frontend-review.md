@@ -1,3 +1,17 @@
+# Aktueller Versionsabgleich, 27.10.2026 (nur lokal vorbereitet)
+
+Der am 26.10.2026 veröffentlichte Stand mc-contact-focus-6877692ffc18b142 wurde am 27.10. erneut über öffentliche HTTPS-Rohbytes abgeglichen: 79/79 Dateien entsprechen dem gesicherten Live-Manifest. Der unveränderte PR4-Head 90509aa09f7d3801c549e83d0feb272874938a0a enthält noch 22 ältere HTML-Dateien; zwei versionierte CSS fehlen. Dieses lokal vorbereitete Delta umfasst genau diese 24 Frontendpfade und diesen aktualisierten Prüfbericht. Noch nicht nach GitHub übertragen. Kein Merge oder neuer Livewechsel.
+
+WhatsApp: bestehender Link auf mobilen Ansichten im Footerfluss. Kontaktseite: zusätzliche Scrollreserve und unmittelbares Scrollen bei kurzen mobilen Ansichten. Farben, Bilder, Rechtstexte, Formularmodul, Backend und Mailroute werden durch dieses Delta nicht geändert. Tracking bleibt deaktiviert. Automatische Eingangsbestätigung wurde vom Nutzer gestrichen und bleibt inaktiv; ältere diesbezügliche Vorschläge sind keine aktuellen Anforderungen.
+
+Historische Releasebelege vom 26.10.: 22 HTML und zwei CSS live hashgeprüft, 55 weitere öffentliche Dateien unverändert, 12 echte Browserfälle mit mobilen Emulationsansichten und Desktop sowie 10 HTTPS-Weiterleitungsprüfungen bestanden. Diese Browserprüfungen wurden am 27.10. nicht erneut ausgeführt. Physische Bildschirmtastatur, andere Browser und Screenreader bleiben ungeprüft. Vollständige lokale Rückfalldateien: 22 HTML. Private serverseitige Backup-Nachinventur aktuell nicht möglich, da keine Chrome/WebFTP-Anbindung in der ASUS-Toolübersicht verfügbar ist; keine neue Anmeldung begonnen.
+
+Vier bekannte reine CRLF/LF-Abweichungen (beide Fontlizenzen, robots.txt, sitemap.xml) bleiben aus diesem Delta ausgeschlossen. .htaccess ist separat produktiv und nicht Teil dieses Frontendpakets. Main unverändert; PR bleibt Draft/unmerged. Keine Workflow-Läufe am überprüften Head gemeldet: dies ist keine bestandene CI-Prüfung. Historischer Pages-Trigger main/root erfordert vor jedem späteren Merge eine frische Nebenwirkungsprüfung.
+
+Die folgenden Abschnitte dokumentieren ältere Stände und werden nicht als aktueller Aktivierungsstatus ausgegeben.
+
+---
+
 # Neuer lokaler Kontaktfeedback-Stand, 26.10.2026
 
 Revision mc-contact-feedback-41572a4d5b1d8e15, nur lokal geprüft. Das folgende Zwei-Dateien-Frontenddelta ist noch nicht veröffentlicht: kontakt.html mit Warnhinweis vor Gesundheits-/vertraulichen Coachingdaten und Bindung an assets/contact-form.99d3ab941aec.mjs. Neues Modul zeigt Nachricht versendet ausschließlich nach erfolgreicher HTTP-Antwort mit ok:true/code:accepted. Status bleibt zum Versand angenommen, kein Zustellnachweis. Fehler/Timeouts, Wiederholungssperre und No-JS-Sperre bleiben erhalten. Alte Modulversionen bleiben bestehen. Kein CSS-/Design-, Backend-, Datenschutztext- oder Trackingdelta.
@@ -77,4 +91,5 @@ Earlier PR4/V4 HTML using the old bare/query binding can remain disabled until i
 Open before release: current raw server-backup content hashes, full release/rollback manifest retaining both modules, actual new production URL/header/MIME/hash checks after separately approved staging, productive switch acceptance and explicit release permission. No release is authorized by this draft.
 
 Tracking remains enabled=false/deploymentApproved=false with transport closed. The public project measurement ID is not activation; prior isolated SDK HTTP204 responses did not establish dashboard processing. Real analytics activation and legal/transparency decisions remain separate. Existing contact.php/backend and technical mail route are not changed or installed by this frontend draft; backend draft PR3 remains separate. No new mail-delivery proof is claimed. Main and production remain untouched by this GitHub backup step.
+
 
