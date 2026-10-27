@@ -310,14 +310,20 @@
   .footer-col a:hover{color:var(--cream);}
   .footer-bottom{display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; padding-top:22px; font-size:12.5px; color:rgba(250,247,239,.4);}
 </style>
+<link rel="stylesheet" href="assets/frontend-accessibility.css">
+<link rel="stylesheet" href="assets/homepage-modern.css">
+<link rel="preload" as="image" href="assets/hero-startseite.webp" fetchpriority="high">
+<script type="module" src="assets/homepage-enhancements.mjs"></script>
+<script defer src="assets/frontend-navigation.js"></script>
+<link rel="stylesheet" href="assets/hero-mobile-fullimage.53200d053435.css">
+<link rel="stylesheet" href="assets/mobile-picture-flow.f42c39cabb68.css">
+<link rel="stylesheet" href="assets/whatsapp-footer-flow.096153f74d72.css">
 </head>
 <body>
 
 <a href="#top" class="skip-link">Zum Inhalt springen</a>
 
-<a href="https://wa.me/491752287170?text=Hallo%20Timo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20ein%20Mentalcoaching-Erstgespr%C3%A4ch." target="_blank" rel="noopener" class="whatsapp-fab" aria-label="Per WhatsApp Kontakt aufnehmen">
-  <svg viewBox="0 0 32 32" aria-hidden="true" fill="#FAF7EF"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.362.68 4.564 1.857 6.42L4 29l7.77-1.815A11.94 11.94 0 0 0 16.001 27C22.629 27 28 21.627 28 15S22.629 3 16.001 3zm6.94 17.02c-.297.833-1.47 1.53-2.41 1.723-.64.132-1.474.238-4.29-.918-3.598-1.49-5.912-5.14-6.093-5.38-.176-.24-1.463-1.948-1.463-3.716 0-1.768.926-2.634 1.254-2.997.297-.328.649-.41.865-.41.216 0 .433.002.622.012.2.01.468-.076.732.559.297.708.955 2.303 1.038 2.47.083.166.14.36.028.6-.111.24-.166.39-.33.6-.166.208-.35.464-.5.623-.166.176-.339.366-.145.717.194.35.865 1.43 1.86 2.317 1.278 1.14 2.356 1.494 2.706 1.66.35.166.556.14.76-.083.207-.223.868-1.012 1.1-1.36.232-.35.464-.29.783-.174.32.117 2.024.955 2.372 1.129.35.174.582.26.667.404.083.144.083.833-.213 1.666z"/></svg>
-</a>
+
 
 <svg aria-hidden="true" width="0" height="0" style="position:absolute">
   <defs>
@@ -332,22 +338,24 @@
 <header id="siteHeader">
   <div class="wrap">
     <a href="/" class="brand-lockup" aria-label="Zur Startseite">
-      <img src="/assets/icon-atemring.png" alt="">
+      <img src="/assets/icon-atemring.png" alt="" width="68" height="68">
     </a>
     <nav class="primary-nav">
       <div class="nav-links">
         <div class="nav-item"><a href="#top">Startseite</a></div>
-        <div class="nav-item">
+        <div class="nav-item has-dropdown">
           <a href="sport-mentalcoaching.html">Sport-Mentalcoaching</a>
-          <div class="dropdown">
+          <button type="button" class="dropdown-toggle" aria-label="Untermenü Sport-Mentalcoaching" aria-expanded="false" aria-controls="nav-submenu-1"><span aria-hidden="true">▾</span></button>
+          <div class="dropdown" id="nav-submenu-1" hidden>
             <a href="sport-mentalcoaching/einzelsportler.html">Einzelsportler</a>
             <a href="sport-mentalcoaching/mannschaftssport.html">Mannschaftssport</a>
             <a href="sport-mentalcoaching/trainercoaching.html">Trainercoaching</a>
           </div>
         </div>
-        <div class="nav-item">
+        <div class="nav-item has-dropdown">
           <a href="life-coaching.html">Life Coaching</a>
-          <div class="dropdown">
+          <button type="button" class="dropdown-toggle" aria-label="Untermenü Life Coaching" aria-expanded="false" aria-controls="nav-submenu-2"><span aria-hidden="true">▾</span></button>
+          <div class="dropdown" id="nav-submenu-2" hidden>
             <a href="life-coaching/familie.html">Familie</a>
             <a href="life-coaching/kinder-jugendliche.html">Kinder & Jugendliche</a>
             <a href="life-coaching/job.html">Job & Berufung</a>
@@ -362,11 +370,11 @@
         <a href="kontakt.html" class="nav-cta">Erstgespräch</a>
       </div>
     </nav>
-    <button class="nav-toggle" id="navToggle" aria-label="Menü öffnen">Menü</button>
+    <button class="nav-toggle" id="navToggle" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileDrawer">Menü</button>
   </div>
 </header>
 
-<div class="mobile-drawer" id="mobileDrawer">
+<div class="mobile-drawer" id="mobileDrawer" role="dialog" aria-modal="true" aria-label="Hauptnavigation" aria-hidden="true" hidden inert>
   <button class="close-btn" id="navClose">Schließen ✕</button>
   <div class="m-group"><a href="#top">Startseite</a></div>
   <div class="m-group">
@@ -396,19 +404,24 @@
 
 <main id="top">
 
-  <section class="hero">
+  <section class="hero" data-full-mobile-image>
+    <img class="hero-mobile-image" src="assets/mobile-raster/hero-startseite.a82d81d91140.jpg" alt="" width="1920" height="1079" decoding="async">
     <div class="wrap hero-copy">
       <p class="eyebrow on-dark">Fokus, Gelassenheit und Energie für Sport, Beruf und Alltag</p>
       <h1>Mentalcoaching in Mannheim für mentale Stärke, Klarheit und persönliche Veränderung.</h1>
       <p class="lede" style="margin-bottom:36px;">Ich begleite Sportlerinnen, Sportler, Trainer, Berufstätige und Privatpersonen dabei, mentale Muster besser zu verstehen, Ressourcen zu aktivieren und konkrete nächste Schritte zu entwickeln.</p>
       <div class="cta-row">
-        <a href="kontakt.html" class="btn-primary">Kostenloses Erstgespräch vereinbaren</a>
-        <a href="kontakt.html" class="btn-ghost">Jetzt Kontakt aufnehmen →</a>
+        <a href="kontakt.html" class="btn-primary" data-contact-action="form" data-contact-placement="hero">Kostenloses Erstgespräch anfragen</a>
+        <a href="kontakt.html" class="btn-ghost" data-contact-action="form" data-contact-placement="hero">Jetzt Kontakt aufnehmen →</a>
       </div>
     </div>
   </section>
 
   <div class="ring-seam"><div class="badge"><svg aria-hidden="true" viewBox="0 0 60 60" fill="none"><circle class="atemring" cx="30" cy="30" r="5" fill="#E8B923"/><circle cx="30" cy="30" r="13" stroke="#E8B923" stroke-width="1.4"/><circle cx="30" cy="30" r="21" stroke="#FFE599" stroke-width="1.2" opacity=".6"/></svg></div></div>
+
+  <nav class="page-shortcuts" aria-label="Auf dieser Seite">
+    <div class="wrap"><span>Dein Einstieg</span><a href="#wege">Coaching-Angebote</a><a href="#ablauf">Ablauf</a><a href="#fragen">Häufige Fragen</a><a href="#kontakt">Kontakt</a></div>
+  </nav>
 
   <!-- INTRO -->
   <section class="intro">
@@ -435,17 +448,17 @@
       </div>
       <div class="schwerpunkte-grid">
         <div class="sp-card">
-          <div class="thumb" style="background-image:url('assets/hero/mentalcoach-mannheim-innere-klarheit-hintergrund.webp');" role="img" aria-label="Frau blickt über eine Berglandschaft als Symbol für innere Klarheit im Mentalcoaching">
+          <div class="thumb" data-mobile-photo style="background-image:url('assets/hero/mentalcoach-mannheim-innere-klarheit-hintergrund.webp');" role="img" aria-label="Frau blickt über eine Berglandschaft als Symbol für innere Klarheit im Mentalcoaching"><img class="mobile-card-photo" src="assets/hero/mentalcoach-mannheim-innere-klarheit-hintergrund.webp" width="1672" height="941" alt="" decoding="async">
             <svg aria-hidden="true" class="ring-mark" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="5" fill="#E8B923"/><circle cx="30" cy="30" r="13" stroke="#E8B923" stroke-width="1.6"/><circle cx="30" cy="30" r="21" stroke="#FFE599" stroke-width="1.3" opacity=".7"/></svg>
           </div>
           <div class="body">
             <h3>Mentalcoach & Mentaltrainer</h3>
             <p>Ich begleite Dich zu mentaler Stärke, Klarheit, Fokus und persönlicher Veränderung.</p>
-            <a href="mentalcoach-mannheim.html" class="more">Erstgespräch anfragen →</a>
+            <a href="kontakt.html" class="more">Erstgespräch anfragen →</a>
           </div>
         </div>
         <div class="sp-card">
-          <div class="thumb" style="background-image:url('assets/hero/mentaltraining-mannschaftssport-fussball-hintergrund.webp');" role="img" aria-label="Fußball auf dem Spielfeld als Hintergrund für mentales Training im Mannschaftssport">
+          <div class="thumb" data-mobile-photo style="background-image:url('assets/hero/mentaltraining-mannschaftssport-fussball-hintergrund.webp');" role="img" aria-label="Fußball auf dem Spielfeld als Hintergrund für mentales Training im Mannschaftssport"><img class="mobile-card-photo" src="assets/mobile-raster/mentaltraining-mannschaftssport-fussball-hintergrund.53a6676ef93f.jpg" width="1672" height="941" alt="" decoding="async">
             <svg aria-hidden="true" class="ring-mark" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="5" fill="#E8B923"/><circle cx="30" cy="30" r="13" stroke="#E8B923" stroke-width="1.6"/><circle cx="30" cy="30" r="21" stroke="#FFE599" stroke-width="1.3" opacity=".7"/></svg>
           </div>
           <div class="body">
@@ -455,7 +468,7 @@
           </div>
         </div>
         <div class="sp-card">
-          <div class="thumb" style="background-image:url('assets/bild/mentalcoaching-mannheim-klarheit-perspektiven.webp');" role="img" aria-label="Gedrehter Würfel als Symbol für Klarheit und neue Perspektiven im Mentalcoaching">
+          <div class="thumb" data-mobile-photo style="background-image:url('assets/bild/mentalcoaching-mannheim-klarheit-perspektiven.webp');" role="img" aria-label="Gedrehter Würfel als Symbol für Klarheit und neue Perspektiven im Mentalcoaching"><img class="mobile-card-photo" src="assets/mobile-raster/mentalcoaching-mannheim-klarheit-perspektiven.d8ce7e4da3f2.jpg" width="1280" height="1002" alt="" decoding="async">
             <svg aria-hidden="true" class="ring-mark" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="5" fill="#E8B923"/><circle cx="30" cy="30" r="13" stroke="#E8B923" stroke-width="1.6"/><circle cx="30" cy="30" r="21" stroke="#FFE599" stroke-width="1.3" opacity=".7"/></svg>
           </div>
           <div class="body">
@@ -465,7 +478,7 @@
           </div>
         </div>
         <div class="sp-card">
-          <div class="thumb" style="background-image:url('assets/hero/mentaltraining-einzelsport-gleitschirm-hintergrund.webp');" role="img" aria-label="Gleitschirmflieger über einer Berglandschaft als Symbol für Fokus im Einzelsport">
+          <div class="thumb" data-mobile-photo style="background-image:url('assets/hero/mentaltraining-einzelsport-gleitschirm-hintergrund.webp');" role="img" aria-label="Gleitschirmflieger über einer Berglandschaft als Symbol für Fokus im Einzelsport"><img class="mobile-card-photo" src="assets/hero/mentaltraining-einzelsport-gleitschirm-hintergrund.webp" width="1673" height="940" alt="" decoding="async">
             <svg aria-hidden="true" class="ring-mark" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="5" fill="#E8B923"/><circle cx="30" cy="30" r="13" stroke="#E8B923" stroke-width="1.6"/><circle cx="30" cy="30" r="21" stroke="#FFE599" stroke-width="1.3" opacity=".7"/></svg>
           </div>
           <div class="body">
@@ -475,7 +488,7 @@
           </div>
         </div>
         <div class="sp-card">
-          <div class="thumb" style="background-image:url('assets/hero/berufungscoaching-mannheim-zukunft-hintergrund.webp');" role="img" aria-label="Digitale Zukunftslandschaft als Hintergrund für Berufungscoaching und neue Perspektiven">
+          <div class="thumb" data-mobile-photo style="background-image:url('assets/hero/berufungscoaching-mannheim-zukunft-hintergrund.webp');" role="img" aria-label="Digitale Zukunftslandschaft als Hintergrund für Berufungscoaching und neue Perspektiven"><img class="mobile-card-photo" src="assets/hero/berufungscoaching-mannheim-zukunft-hintergrund.webp" width="1672" height="940" alt="" decoding="async">
             <svg aria-hidden="true" class="ring-mark" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="5" fill="#E8B923"/><circle cx="30" cy="30" r="13" stroke="#E8B923" stroke-width="1.6"/><circle cx="30" cy="30" r="21" stroke="#FFE599" stroke-width="1.3" opacity=".7"/></svg>
           </div>
           <div class="body">
@@ -485,7 +498,7 @@
           </div>
         </div>
         <div class="sp-card">
-          <div class="thumb" style="background-image:url('assets/hero/karrierecoaching-mannheim-architektur-hintergrund.webp');" role="img" aria-label="Moderne Architektur als Hintergrund für Karriere- und Jobcoaching in Mannheim">
+          <div class="thumb" data-mobile-photo style="background-image:url('assets/hero/karrierecoaching-mannheim-architektur-hintergrund.webp');" role="img" aria-label="Moderne Architektur als Hintergrund für Karriere- und Jobcoaching in Mannheim"><img class="mobile-card-photo" src="assets/hero/karrierecoaching-mannheim-architektur-hintergrund.webp" width="1673" height="940" alt="" decoding="async">
             <svg aria-hidden="true" class="ring-mark" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="5" fill="#E8B923"/><circle cx="30" cy="30" r="13" stroke="#E8B923" stroke-width="1.6"/><circle cx="30" cy="30" r="21" stroke="#FFE599" stroke-width="1.3" opacity=".7"/></svg>
           </div>
           <div class="body">
@@ -508,7 +521,7 @@
         <h2>Sport-Mentalcoaching &amp; Life-Coaching</h2>
       </div>
       <div class="wege-grid">
-        <div class="wege-card sport">
+        <div class="wege-card sport" data-mobile-photo><img class="mobile-path-photo" src="assets/mobile-raster/sportmentaltraining-mannheim-ski-hintergrund.86dee829a483.jpg" width="1673" height="940" alt="" decoding="async"><div class="mobile-path-copy">
           <span class="tag">Dein ultimativer Leitfaden in die Welt des Sports</span>
           <h3>Sport-Mentalcoaching</h3>
           <p>Eine professionelle Begleitung für Sportler und Teams, um mental auf Top-Level zu performen. Es hilft Dir, Deine Gedanken zu fokussieren, innere Blockaden zu lösen und im Wettkampf Dein volles Potenzial abzurufen.</p>
@@ -518,8 +531,8 @@
             <li><a href="sport-mentalcoaching/trainercoaching.html">Trainercoaching</a></li>
           </ul>
           <a href="sport-mentalcoaching.html" class="card-link">Mehr erfahren →</a>
-        </div>
-        <div class="wege-card life">
+        </div></div>
+        <div class="wege-card life" data-mobile-photo><img class="mobile-path-photo" src="assets/hero/familiencoaching-mannheim-blumen-hintergrund.webp" width="1673" height="940" alt="" decoding="async"><div class="mobile-path-copy">
           <span class="tag">Dein Weg zum eigenen Ich</span>
           <h3>Life Coaching</h3>
           <p>Als Life Coach begleite ich Dich auf Deinem Weg zu mehr Klarheit und Lebensfreude. Mit gezielten Methoden findest Du heraus, was Du wirklich willst, und lernst, hinderliche Muster zu durchbrechen.</p>
@@ -529,7 +542,7 @@
             <li><a href="life-coaching/job.html">Job & Berufung</a></li>
           </ul>
           <a href="life-coaching.html" class="card-link">Mehr erfahren →</a>
-        </div>
+        </div></div>
       </div>
     </div>
   </section>
@@ -632,31 +645,32 @@
           <p>Gemeinsamer Blick auf Fortschritte und nächste sinnvolle Schritte.</p>
         </div>
       </div>
+      <p class="process-contact"><a href="kontakt.html" class="btn-primary" data-contact-action="form" data-contact-placement="process">Erstgespräch anfragen</a></p>
     </div>
   </section>
 
   <div class="ring-seam"><div class="badge"><svg aria-hidden="true" viewBox="0 0 60 60" fill="none"><circle class="atemring" cx="30" cy="30" r="5" fill="#E8B923"/><circle cx="30" cy="30" r="13" stroke="#E8B923" stroke-width="1.4"/><circle cx="30" cy="30" r="21" stroke="#FFE599" stroke-width="1.2" opacity=".6"/></svg></div></div>
 
   <!-- FAQ -->
-  <section class="faq">
+  <section class="faq" id="fragen" aria-labelledby="fragen-title">
     <div class="wrap">
       <div class="section-head">
         <span class="eyebrow sage">Häufige Fragen</span>
-        <h2>Gut zu wissen</h2>
+        <h2 id="fragen-title">Gut zu wissen</h2>
       </div>
       <div class="faq-list">
-        <div class="faq-item">
-          <h4><svg aria-hidden="true" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="6" fill="#7C9A92"/><circle cx="30" cy="30" r="15" stroke="#7C9A92" stroke-width="2"/></svg>Ist Mentalcoaching eine Therapie?</h4>
+        <details class="faq-item"><summary><h3>Ist Mentalcoaching eine Therapie?</h3></summary>
           <p>Nein. Mentalcoaching ist keine medizinische oder psychotherapeutische Behandlung und ersetzt diese nicht. Wenn gesundheitliche Beschwerden, akute Krisen oder psychische Erkrankungen im Vordergrund stehen, ist ärztliche oder therapeutische Unterstützung der richtige Rahmen; Coaching kann ergänzend zur Orientierung beitragen.</p>
-        </div>
-        <div class="faq-item">
-          <h4><svg aria-hidden="true" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="6" fill="#7C9A92"/><circle cx="30" cy="30" r="15" stroke="#7C9A92" stroke-width="2"/></svg>Wo findet das Coaching statt?</h4>
+        </details>
+        <details class="faq-item"><summary><h3>Wo findet das Coaching statt?</h3></summary>
           <p>Nach Absprache in Mannheim, online oder in einem passenden Rahmen. Im kostenlosen Erstgespräch klären wir, ob ein persönlicher Termin, ein Online-Gespräch oder ein anderer Rahmen am besten passt.</p>
-        </div>
-        <div class="faq-item">
-          <h4><svg aria-hidden="true" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="6" fill="#7C9A92"/><circle cx="30" cy="30" r="15" stroke="#7C9A92" stroke-width="2"/></svg>Wie schnell merke ich eine Veränderung?</h4>
-          <p>Viele Menschen erleben schon nach den ersten Terminen mehr Ordnung im Kopf. Nachhaltige Veränderung entsteht durch Anwendung, Wiederholung und ehrliche Reflexion.</p>
-        </div>
+        </details>
+        <details class="faq-item"><summary><h3>Wie schnell merke ich eine Veränderung?</h3></summary>
+          <p>Ein bestimmter Erfolg oder Zeitpunkt lässt sich nicht garantieren. Im Erstgespräch klären wir Dein Anliegen; im Coaching betrachten wir gemeinsam Deine nächsten Schritte.</p>
+        </details>
+        <details class="faq-item"><summary><h3>Wie frage ich ein Erstgespräch an?</h3></summary>
+          <p>Nutze das <a href="kontakt.html" data-contact-action="form" data-contact-placement="faq">Kontaktformular</a> oder schreibe an <a href="mailto:timo@mentalcoach-ts.de" data-contact-action="email" data-contact-placement="faq">timo@mentalcoach-ts.de</a>. Deine Anfrage ist noch keine Terminbestätigung.</p>
+        </details>
       </div>
     </div>
   </section>
@@ -681,48 +695,39 @@
           <p>Villinger Straße 20</p>
           <p>68239 Mannheim</p>
           <span class="label">Mobil</span>
-          <p><a href="tel:+491752287170">+49 175 - 228 71 70</a></p>
+          <p><a href="tel:+491752287170" data-contact-action="phone" data-contact-placement="contact">+49 175 - 228 71 70</a></p>
           <span class="label">Mail</span>
-          <p><a href="mailto:timo@mentalcoach-ts.de">timo@mentalcoach-ts.de</a></p>
+          <p><a href="mailto:timo@mentalcoach-ts.de" data-contact-action="email" data-contact-placement="contact">timo@mentalcoach-ts.de</a></p>
           <div class="social-row">
             <a href="https://www.instagram.com/mentalcoach_timo/" target="_blank" rel="noopener" aria-label="Instagram">
               <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg>
             </a>
-            <a href="#" aria-label="Facebook">
-              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M14 9h3V6h-3c-2 0-3.5 1.5-3.5 3.5V12H8v3h2.5v6h3v-6H16l1-3h-3.5v-2c0-.5.5-1 1-1z"/></svg>
-            </a>
-            <a href="#" aria-label="YouTube">
-              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="6" width="18" height="12" rx="3"/><path d="M10 9.5l5 2.5-5 2.5v-5z" fill="currentColor" stroke="none"/></svg>
-            </a>
           </div>
         </div>
-        <form class="contact-form" id="contactForm">
-          <div class="field">
-            <label for="name">Dein Name</label>
-            <input type="text" id="name" name="name" placeholder="Wie heißt Du?" required>
-          </div>
-          <div class="field">
-            <label for="email">Deine Mail-Adresse</label>
-            <input type="email" id="email" name="email" placeholder="Deine Mail-Adresse" required>
-          </div>
-          <div class="field">
-            <label for="message">Deine Nachricht</label>
-            <textarea id="message" name="message" rows="4" placeholder="Wobei darf ich Dich unterstützen?" required></textarea>
-          </div>
-          <p class="form-note">Öffnet Dein Mail-Programm mit vorausgefüllter Nachricht an Timo. (Für ein echtes Formular-Backend: siehe Hinweis unten im Chat.)</p>
-          <button type="submit" class="submit-btn">Senden</button>
-        </form>
+        <div class="contact-form" aria-labelledby="kontakt-link-title">
+          <h3 id="kontakt-link-title" style="color:var(--cream); font-size:26px; margin-bottom:18px;">Lass uns ins Gespräch kommen.</h3>
+          <p style="color:rgba(250,247,239,.85); margin:0 0 24px;">Erzähle mir, was Dich bewegt. Auf der Kontaktseite findest Du das Formular für Deine Nachricht.</p>
+          <a href="kontakt.html" class="btn-primary" data-contact-action="form" data-contact-placement="contact" style="display:block; text-align:center;">Zum Kontaktformular</a>
+        </div>
       </div>
     </div>
   </section>
 
+  <nav class="mobile-contact-actions" aria-label="Schneller Kontakt">
+    <a href="kontakt.html" data-contact-action="form" data-contact-placement="mobile">Erstgespräch</a>
+    <a href="mailto:timo@mentalcoach-ts.de" data-contact-action="email" data-contact-placement="mobile">E-Mail</a>
+    <a href="tel:+491752287170" data-contact-action="phone" data-contact-placement="mobile">Anrufen</a>
+  </nav>
 </main>
 
 <footer>
   <div class="wrap">
+<a href="https://wa.me/491752287170?text=Hallo%20Timo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20ein%20Mentalcoaching-Erstgespr%C3%A4ch." target="_blank" rel="noopener" class="whatsapp-fab" aria-label="Per WhatsApp Kontakt aufnehmen">
+  <svg viewBox="0 0 32 32" aria-hidden="true" fill="#FAF7EF"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.362.68 4.564 1.857 6.42L4 29l7.77-1.815A11.94 11.94 0 0 0 16.001 27C22.629 27 28 21.627 28 15S22.629 3 16.001 3zm6.94 17.02c-.297.833-1.47 1.53-2.41 1.723-.64.132-1.474.238-4.29-.918-3.598-1.49-5.912-5.14-6.093-5.38-.176-.24-1.463-1.948-1.463-3.716 0-1.768.926-2.634 1.254-2.997.297-.328.649-.41.865-.41.216 0 .433.002.622.012.2.01.468-.076.732.559.297.708.955 2.303 1.038 2.47.083.166.14.36.028.6-.111.24-.166.39-.33.6-.166.208-.35.464-.5.623-.166.176-.339.366-.145.717.194.35.865 1.43 1.86 2.317 1.278 1.14 2.356 1.494 2.706 1.66.35.166.556.14.76-.083.207-.223.868-1.012 1.1-1.36.232-.35.464-.29.783-.174.32.117 2.024.955 2.372 1.129.35.174.582.26.667.404.083.144.083.833-.213 1.666z"/></svg>
+</a>
     <div class="footer-top">
       <div class="footer-brand">
-        <a href="#top"><img src="assets/logo-hell.png" alt="Timo Schreck – Mentalcoaching Mannheim"></a>
+        <a href="#top"><img src="assets/logo-hell.png" alt="Timo Schreck – Mentalcoaching Mannheim" width="1600" height="516" loading="lazy" decoding="async"></a>
         <p>Mentalcoaching für Sport, Beruf und Alltag in Mannheim und der Rhein-Neckar-Region.</p>
       </div>
       <div class="footer-cols">
@@ -756,6 +761,7 @@
       </div>
     </div>
     <div class="footer-bottom">
+      <button type="button" class="measurement-settings" data-measurement-settings hidden>Datenschutzeinstellungen</button>
       <span>© 2026 Timo Schreck · Mentalcoach Mannheim</span>
       <span>Mannheim · Rhein-Neckar-Region</span>
     </div>
@@ -766,20 +772,9 @@
   const header = document.getElementById('siteHeader');
   window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 40));
 
-  const drawer = document.getElementById('mobileDrawer');
-  document.getElementById('navToggle').addEventListener('click', () => drawer.classList.add('open'));
-  document.getElementById('navClose').addEventListener('click', () => drawer.classList.remove('open'));
-  drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => drawer.classList.remove('open')));
 
-  document.getElementById('contactForm').addEventListener('submit', function(e){
-    e.preventDefault();
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
-    const subject = encodeURIComponent('Kontaktanfrage über die Website');
-    const body = encodeURIComponent(`Name: ${name}\nMail: ${email}\n\n${message}`);
-    window.location.href = `mailto:timo@mentalcoach-ts.de?subject=${subject}&body=${body}`;
-  });
+
+
 </script>
 
 <script type="application/ld+json">
@@ -799,8 +794,15 @@
     "addressRegion": "Baden-Württemberg",
     "addressCountry": "DE"
   },
-  "areaServed": ["Mannheim", "Rhein-Neckar-Region"],
-  "sameAs": ["https://www.instagram.com/mentalcoach_timo/"]
+  "areaServed": [
+    "Mannheim",
+    "Rhein-Neckar-Region"
+  ],
+  "sameAs": [
+    "https://www.instagram.com/mentalcoach_timo/"
+  ],
+  "@id": "https://mentalcoach-ts.de/#mentalcoach",
+  "email": "timo@mentalcoach-ts.de"
 }
 </script>
 

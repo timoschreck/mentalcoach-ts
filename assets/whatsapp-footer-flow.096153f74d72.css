@@ -1,0 +1,8 @@
+/* Keep the existing WhatsApp action in normal footer flow on the existing narrow-navigation breakpoint. */
+@media (max-width:980px) {
+  footer .whatsapp-fab {
+    position:static; width:50px; height:50px;
+    margin:0 0 28px; z-index:auto; transform:none;
+    scroll-margin-top:120px; scroll-margin-bottom:110px;
+  }
+}

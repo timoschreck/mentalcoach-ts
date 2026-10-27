@@ -1,0 +1,12 @@
+/* Local Mentalcoach mobile hero proposal; existing palette and desktop preserved. */
+.hero-mobile-image { display:none; }
+@media (max-width:700px) {
+  section.hero[data-full-mobile-image] {
+    background:var(--ink) !important;
+    padding:109px 0 76px !important;
+  }
+  section.hero[data-full-mobile-image] > .hero-mobile-image {
+    display:block; width:100%; height:auto; max-width:100%; margin:0;
+  }
+  section.hero[data-full-mobile-image] > .hero-copy { padding-top:30px; }
+}

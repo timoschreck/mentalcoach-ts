@@ -1,0 +1,11 @@
+/* Local mobile rendering isolation: unchanged palette, native full-image flow. */
+.mobile-card-photo, .mobile-path-photo { display:none; }
+.mobile-path-copy { display:contents; }
+@media (max-width:700px) {
+  .sp-card .thumb[data-mobile-photo] { height:auto; background:none !important; }
+  .sp-card .thumb[data-mobile-photo]::after { display:none; }
+  .thumb[data-mobile-photo] > .mobile-card-photo, .wege-card[data-mobile-photo] > .mobile-path-photo { display:block; width:100%; height:auto; margin:0; }
+  .wege-card[data-mobile-photo] { display:block; min-height:0; padding:0; background-image:none; background-color:var(--ink); isolation:auto; }
+  .wege-card[data-mobile-photo]::before { display:none; }
+  .wege-card[data-mobile-photo] > .mobile-path-copy { display:block; padding:32px 24px; }
+}
